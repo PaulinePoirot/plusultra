@@ -1,32 +1,30 @@
 var app = new Vue({
   el: '#app',
   data: {
-    url: "https://twitter.com/intent/tweet?text=",
-    finalUrl: "",
     random: 0,
-    quote: "Pick a quote",
-    quotes: ["A man paints with his brains and not with his hands.",
-      "You must submit to supreme suffering in order to discover the completion of joy.",
-      "I have held many things in my hands, and I have lost them all; but whatever I have placed in God's hands, that I still possess.",
-      "A man with God is always in the majority.",
-      "I love Taco Bell. Whenever I go there, I could get anything on the menu and be totally happy."
+    quote: "",
+    quotes: ['"All men are not created equal." ━ Izuku Midoriya',
+      '"Maybe I failed this time, but I’m not giving up." ━ Shinsou Hitoshi',
+      '"Dreams can become reality!" ━ Izuku Midoriya',
+      '"The most inflated egos are often the most fragile." ━ All Might',
+      '"Stop Talking, I will win. That’s… what heroes do." ━ Bakugou Katsuki',
+      '"Isn’t it a hero’s job to save people?" ━ Shoto Todoroki',
+      '"Heroes and villains both thrive on violence, but we’re still categorized. “You’re good” “You’re evil”." ━ Shigaraki Tomura',
+      '"The most inflated egos are often the most fragile." ━ All Might',
+      '"Whether you win or lose, looking back and learning from your experience is a part of life." ━ All Might',
+
     ],
-    person: "Mike",
-    persons: ["Michaelangelo", "John Calvin", "Martin Luther", "John Knox",
-      "Chris Massoglia"
-    ]
   },
 
   methods: {
-
-    newQuote: function() {
-
+    ready: function() {
       this.random = Math.floor(Math.random() * 5) + 0
 
       this.quote = this.quotes[this.random];
       this.person = this.persons[this.random];
-      this.finalUrl = this.url + this.quote;
     }
-
+  },
+  mounted() {
+    this.ready()
   }
 })
