@@ -1,8 +1,73 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html{
+  height:100%;
 }
 
-a {
-  color: #00B7FF;
+body {
+  height: 100%;
+  margin:0;
+  padding:0;
+}
+footer{
+  /* position: absolute;
+  bottom: 0;
+  width: 100%; */
+}
+
+
+.center-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+/* #app {
+  margin: 10px auto;
+  width: 80%;
+} */
+
+/* .carousel-component {
+  position: relative;
+  overflow: hidden;
+} */
+
+.carousel-page {
+  visibility: hidden;
+  position: absolute;
+
+}
+
+.carousel-page img {
+  width: 600px;
+}
+
+.carousel-page h2 {
+  opacity: 0;
+}
+
+.carousel-page.active {
+  visibility: visible;
+  position: static;
+}
+
+.carousel-nav-prev,
+.carousel-nav-next {
+  position: absolute;
+  top: 35%;
+  transform: translate(0, -50%);
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFF;
+  cursor: pointer;
+}
+
+.carousel-nav-prev {
+  left: 30%;
+}
+
+.carousel-nav-next {
+  right: 30%;
 }
