@@ -1,35 +1,30 @@
 var app = new Vue({
   el: '#app',
   data: {
-    random: 0,
-    quote: "",
-    quotes: ['"All men are not created equal." ━ Izuku Midoriya',
-      '"Maybe I failed this time, but I’m not giving up." ━ Shinsou Hitoshi',
-      '"Dreams can become reality!" ━ Izuku Midoriya',
-      '"The most inflated egos are often the most fragile." ━ All Might',
-      '"Stop Talking, I will win. That’s… what heroes do." ━ Bakugou Katsuki',
-      '"Isn’t it a hero’s job to save people?" ━ Shoto Todoroki',
-      '"Heroes and villains both thrive on violence, but we’re still categorized. “You’re good” “You’re evil”." ━ Shigaraki Tomura',
-      '"The most inflated egos are often the most fragile." ━ All Might',
-      '"Whether you win or lose, looking back and learning from your experience is a part of life." ━ All Might',
-
-    ],
-  },
-
-  methods: {
-    ready: function() {
-      this.random = Math.floor(Math.random() * this.quotes.length) + 0;
-
-      this.quote = this.quotes[this.random];
-      this.person = this.persons[this.random];
-    }
-  },
-  mounted() {
-    this.ready();
+    "persos": [{
+      "name": "Tamaki Amajiki",
+      "body": "Tamaki Amajiki est un élèves de Terminale du lycée Yuei. Il fait partie des trois meilleurs étudiant du lycée...",
+      "image": "../theme/img/icon_tamaki.jpg",
+      "urlID": "../wiki/tamaki.html"
+    }, {
+      "name": "Mirio Togata",
+      "body": "Mirio Togata est un élève de terminale du Lycée Yuei ayant comme pseudonyme, Lemillion. Il fait partie des ...",
+      "image": "../theme/img/icon_mirio.jpg",
+      "urlID": "../wiki/mirio.html"
+    }, {
+      "name": "Toshinori Yagi",
+      "body": "Toshinori est le premier héros le plus puissant et le 'symbole de la paix' qui a inspiré toute une génération",
+      "image": "../theme/img/icon_yagi.jpg",
+      "urlID": "../wiki/yagi.html"
+    }, {
+      "name": "Himiko Toga",
+      "body": "Himiko Toga est une Vilaine qui fait partie de l'Alliance des super-vilains. Elle a rejoint l'organisation ...",
+      "image": "../theme/img/icon_toga.jpg",
+      "urlID": "../wiki/toga.html"
+    }]
   }
+});
 
-
-})
 Vue.component('carousel-component', {
   render: function(createElement) {
     return createElement('div', {
@@ -104,3 +99,27 @@ Vue.component('carousel-item', {
 new Vue({
   el: '#app'
 });
+
+
+
+new Vue({
+  el: '#app',
+  router,
+  created() {
+    this.fetchData()
+  },
+  components: {
+    App
+  },
+  data: {
+    results: []
+  },
+  methods: {
+    fetchData() {
+      axios.get('./static/water.json').then(response => {
+        this.results = response.data
+      })
+    }
+  },
+  template: '<App :results="results" />'
+})

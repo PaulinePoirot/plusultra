@@ -4,7 +4,7 @@
 <head>
   <link rel="shortcut icon" href="https://vignette.wikia.nocookie.net/bokunoheroacademia/images/6/64/Favicon.ico/revision/latest?cb=20141231001855&amp;path-prefix=fr">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-  <link rel="stylesheet" type="text/css" href="../stylesheets/style.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/list_character.css" media="all" />
 
   <meta charset="utf-8">
   <title>PLUS ULTRA</title>
@@ -13,8 +13,41 @@
 <body>
   <div id="app">
     <navbar></navbar>
-    <characters-component></characters-component>
+    <div class="row">
+      <div class="col s10 offset-s2">
+        <div v-for="perso in persos">
+          <div class="col s2 m2">
+            <div class="card small">
+              <div class="card-image">
+                <a :href="perso.urlID">
+                  <img :src="perso.image" />
+                  <span class="card-title">{{ perso.name }}</span>
+                </a>
+              </div>
+              <div class="card-content">
+                <p>{{ perso.body }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s2 m2">
+          <div class="card small">
+            <div class="card-image">
+              <img src="https://via.placeholder.com/200x200">
+              <span class="card-title">Card Title</span>
+            </div>
+            <a style="top:53%;" href="../wiki/add_character.html" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+            <div class="card-content">
+              <p>Ajouter un nouveau caractère ?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer-bar></footer-bar>
+
   </div>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -24,4 +57,4 @@
   <script src="../theme/components/navbar.js"></script>
   <script src="../theme/components/characters.js"></script>
   <script src="../javascript/core/script_vue.js"></script>
-  <script src="../javascript/character.js"></script>
+  <script src="../javascript/index.js"></script>

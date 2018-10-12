@@ -2,7 +2,7 @@ const characters =
   `   <container class="characters">
     <div class="row">
      <div class="col s10 offset-s2">
-    <div class="col s2">
+    <div class="col s2 m2">
       <div class="card small">
         <div class="card-image"><a href="../wiki/tamaki.html">
           <img src="../theme/img/icon_tamaki.jpg">

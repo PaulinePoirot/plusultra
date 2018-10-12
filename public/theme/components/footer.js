@@ -17,10 +17,11 @@ const footer =
       </div>
       <div class="footer-copyright">
         <div class="container">
-          © 2014 Copyright Text
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+          © Tous écrits de Plus Ultra vienne de Wiki Boku no Hero Academia, une communauté de FANDOM appartenant à la catégorie Bandes dessinées.
+          <a class="grey-text text-lighten-4 right" href="http://fr.bokunoheroacademia.wikia.com/wiki/Wiki_Boku_no_Hero_Academia">Wiki Boku no Hero Academia</a>
         </div>
       </div>
     </footer>
     </body>
-</html>`;
+</html>
+`;
