@@ -99,27 +99,3 @@ Vue.component('carousel-item', {
 new Vue({
   el: '#app'
 });
-
-
-
-new Vue({
-  el: '#app',
-  router,
-  created() {
-    this.fetchData()
-  },
-  components: {
-    App
-  },
-  data: {
-    results: []
-  },
-  methods: {
-    fetchData() {
-      axios.get('./static/water.json').then(response => {
-        this.results = response.data
-      })
-    }
-  },
-  template: '<App :results="results" />'
-})
