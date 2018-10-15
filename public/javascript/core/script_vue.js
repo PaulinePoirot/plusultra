@@ -4,9 +4,7 @@ Vue.component("navbar", {
 
 Vue.component("footer-bar", {
   template: footer,
-  props: ['quote'],
-
-  data: {
+  data: () => ({
     el: '#app',
     random: 0,
     quote: "",
@@ -21,17 +19,16 @@ Vue.component("footer-bar", {
       '"Whether you win or lose, looking back and learning from your experience is a part of life." ━ All Might',
 
     ],
-  },
+  }),
 
   methods: {
     ready: function() {
-      this.random = Math.floor(Math.random() * this.quotes.length) + 0;
 
+      this.random = Math.floor(Math.random() * this.quotes.length) + 0;
       this.quote = this.quotes[this.random];
-      this.person = this.persons[this.random];
     }
   },
-  mounted() {
+  created() {
     this.ready();
   }
 

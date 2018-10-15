@@ -7,7 +7,7 @@ const footer =
             <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
           </div>
           <div class="col l4 offset-l2 s12">
-            <div id="app">
+            <div>
             <div class="quote-box">
                  <h6 class="text">{{quote}}</h6>
                </div>
