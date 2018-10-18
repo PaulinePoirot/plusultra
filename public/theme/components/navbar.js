@@ -13,7 +13,7 @@ const navbar =
         <li><a href="badges.html">Components</a></li>
         <!-- Dropdown Trigger -->
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
-        <li><i class="material-icons right">account_circle</i> connexion</li>
+        <li><a href="../wiki/connexion_page.html">connexion <i class="material-icons right">account_circle</i></a></li>
       </ul>
     </div>
   </nav></div>`;
