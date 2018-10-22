@@ -73,8 +73,10 @@
                 @mouseout="hoverCard(-1)"
                 class="card">
 
-            <img class="card-image" :class="{'selected': isSelected(index)}"
-                 :src="perso.image">
+            <a :href="perso.urlID">
+                <img class="card-image" :class="{'selected': isSelected(index)}"
+                     :src="perso.image" >
+            </a>
 
             <div class="card-footer">
                 <h3 class="card-title" :class="{'selected': isSelected(index)}">{{perso.pseudo}}</h3>
