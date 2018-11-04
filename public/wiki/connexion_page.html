@@ -12,29 +12,25 @@
 </head>
 
 <body>
-<div id="connexion_page">
+<div id="app">
     <navbar></navbar>
     <div class="row">
-        <form class="col s4 offset-s4">
+        <form class="col s4 offset-s4" method="post" action="/connexion">
             <div class="row">
                 <div class="input-field">
-                    <label for="identifiant">Identifiant</label>
-                    <input placeholder="admin" id="identifiant" type="text" class="validate" v-model="id">
+                    <label for="username">Identifiant</label>
+                    <input id="username" type="text" name="username">
                 </div>
             </div>
             <div class="row">
                 <div class="input-field">
                     <label for="password">Mot de passe</label>
-                    <input placeholder="password" id="password" type="password" class="validate" v-model="passwd">
+                    <input id="password" type="password" name="password">
                 </div>
             </div>
 
-            <button class="btn waves-effect waves-light right"
-                    type="button"
-                    name="action"
-                    @click="connexion">
+            <button class="btn waves-effect waves-light right" type="submit">
                 Envoyer <i class="material-icons right">send</i></button>
-
         </form>
     </div>
 
@@ -42,6 +38,7 @@
 </div>
 </body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
@@ -50,12 +47,4 @@
 <script src="../theme/components/navbar.js"></script>
 <script src="../theme/components/characters.js"></script>
 
-<script>
-    new Vue({
-        el: "#connexion_page"
-    })
-</script>
-<!--
-<script src="../javascript/core/script_vue.js"></script>
 <script src="../javascript/index.js"></script>
--->
