@@ -7,13 +7,12 @@
 var app = require('../app');
 var debug = require('debug')('mhmd:server');
 var http = require('http');
-
+var path = require('path');
+var fs = require('fs');
 
 /**
  * initialisation des json
  */
-var path = require('path')
-var fs = require('fs')
 global.users = null
 global.persos = null
 global.quotes = null
@@ -35,9 +34,8 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port, function (req, res, next) {
+server.listen(port, () => {
     console.log("Listening on port " + port)
-
     var chemin_persos = path.join(__dirname, '../public/javascript/persos.json')
     persos = fs.readFileSync(chemin_persos).toString('utf8')
 
@@ -47,7 +45,7 @@ server.listen(port, function (req, res, next) {
     var chemin_quotes = path.join(__dirname, '../public/javascript/quotes.json')
     quotes = fs.readFileSync(chemin_quotes).toString('utf8')
 
-});
+})
 server.on('error', onError);
 server.on('listening', onListening);
 

@@ -122,7 +122,7 @@ new Vue({
     },
     methods: {
         ready: function () {
-            this.random = Math.floor(Math.random() * this.quotes.length);
+            this.random = Math.floor(Math.random() * quotes.length);
 
             this.quote = this.quotes[this.random];
         },
