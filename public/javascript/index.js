@@ -130,7 +130,7 @@ Vue.component("characters-component", {
 let vue = new Vue({
     el: '#app',
     data: {
-      persos: [],
+        persos: [],
         username: "",
         password: "",
         random: 0,
@@ -140,6 +140,8 @@ let vue = new Vue({
     methods: {
       loadData () {
         axios.get('http://localhost:8080/persos').then((response) => {
+          console.log("222  ")
+
             this.persos = response.data
           });
         },
