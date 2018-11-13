@@ -1,5 +1,56 @@
 Vue.prototype.$http = axios
 
+Vue.component("navbar", {
+    template: navbar,
+});
+
+Vue.component("footer-bar", {
+    template: footer,
+    data: () => ({
+        el: '#app',
+        random: 0,
+        quote: "",
+        quotes: ['"All men are not created equal." ━ Izuku Midoriya',
+            '"Maybe I failed this time, but I’m not giving up." ━ Shinsou Hitoshi',
+            '"Dreams can become reality!" ━ Izuku Midoriya',
+            '"The most inflated egos are often the most fragile." ━ All Might',
+            '"Stop Talking, I will win. That’s… what heroes do." ━ Bakugou Katsuki',
+            '"Isn’t it a hero’s job to save people?" ━ Shoto Todoroki',
+            '"Heroes and villains both thrive on violence, but we’re still categorized. “You’re good” “You’re evil”." ━ Shigaraki Tomura',
+            '"The most inflated egos are often the most fragile." ━ All Might',
+            '"Whether you win or lose, looking back and learning from your experience is a part of life." ━ All Might',
+
+        ],
+    }),
+
+    methods: {
+
+      loadQuotes () {
+        axios.get('http://localhost:8080/quotes').then((response) => {
+            this.quotes = response.data
+          });
+        },
+        ready() {
+          //  this.random = Math.floor(Math.random() * this.quotes.length);
+           // this.quote = this.quotes[this.random];
+
+            this.loadQuotes()
+            setInterval(function () {
+              this.loadQuotes()
+            }.bind(this), 30000)
+        },
+        ready: function () {
+
+            this.random = Math.floor(Math.random() * this.quotes.length);
+            this.quote = this.quotes[this.random];
+        }
+    },
+    created() {
+        this.ready();
+    }
+
+});
+
 Vue.component('carousel-component', {
     render: function (createElement) {
         return createElement('div', {
@@ -71,49 +122,15 @@ Vue.component('carousel-item', {
     }
 });
 
-Vue.component("navbar", {
-    template: navbar,
-});
-
-Vue.component("footer-bar", {
-    template: footer,
-    data: () => ({
-        el: '#app',
-        random: 0,
-        quote: "",
-        quotes: ['"All men are not created equal." ━ Izuku Midoriya',
-            '"Maybe I failed this time, but I’m not giving up." ━ Shinsou Hitoshi',
-            '"Dreams can become reality!" ━ Izuku Midoriya',
-            '"The most inflated egos are often the most fragile." ━ All Might',
-            '"Stop Talking, I will win. That’s… what heroes do." ━ Bakugou Katsuki',
-            '"Isn’t it a hero’s job to save people?" ━ Shoto Todoroki',
-            '"Heroes and villains both thrive on violence, but we’re still categorized. “You’re good” “You’re evil”." ━ Shigaraki Tomura',
-            '"The most inflated egos are often the most fragile." ━ All Might',
-            '"Whether you win or lose, looking back and learning from your experience is a part of life." ━ All Might',
-
-        ],
-    }),
-
-    methods: {
-        ready: function () {
-
-            this.random = Math.floor(Math.random() * this.quotes.length);
-            this.quote = this.quotes[this.random];
-        }
-    },
-    created() {
-        this.ready();
-    }
-
-});
 
 Vue.component("characters-component", {
     template: characters,
 });
 
-new Vue({
+let vue = new Vue({
     el: '#app',
     data: {
+      persos: [],
         username: "",
         password: "",
         random: 0,
@@ -121,10 +138,19 @@ new Vue({
         selectedPerso: -1
     },
     methods: {
-        ready: function () {
-            this.random = Math.floor(Math.random() * quotes.length);
+      loadData () {
+        axios.get('http://localhost:8080/persos').then((response) => {
+            this.persos = response.data
+          });
+        },
+        ready() {
+          //  this.random = Math.floor(Math.random() * this.quotes.length);
+           // this.quote = this.quotes[this.random];
 
-            this.quote = this.quotes[this.random];
+            this.loadData()
+            setInterval(function () {
+              this.loadData()
+            }.bind(this), 30000)
         },
 
         hoverCard(selectedIndex) {

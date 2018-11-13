@@ -7,7 +7,7 @@ const navbar =
   </ul>
   <nav>
     <div class="nav-wrapper blue darken-4">
-      <a href="http://localhost:3001/" class="brand-logo">&nbsp;&nbsp;PLUS ULTRA</a>
+      <a href="http://localhost:8080/" class="brand-logo">&nbsp;&nbsp;PLUS ULTRA</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="../wiki/list_character.html">Personnages</a></li>
         <li><a href="badges.html">Components</a></li>
