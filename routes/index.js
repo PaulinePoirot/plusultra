@@ -72,8 +72,8 @@ router.get('/persos', function (req, res, next) {
     res.json(JSON.parse(persos))
 })
 
-router.get('/perso/:id', function (req, res, next) {
-    console.log("GET /perso/" + req.params.id)
+router.get('/persos/:id', function (req, res, next) {
+    console.log("GET /persos/" + req.params.id)
 
     var resultat = JSON.parse('{"error":"personnage non trouvé"}')
 

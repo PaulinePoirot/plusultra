@@ -1,0 +1,39 @@
+html{
+  height:100%;
+}
+
+body {
+  height: 100%;
+  margin:0;
+  padding:0;
+}
+
+.image_add{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top:10px;
+}
+
+.add{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top:10px;
+  text-align: center;
+  width:947px;
+  height: 316px;
+  background:url(https://78.media.tumblr.com/c19fe65a1699dc610da606c6ac304f99/tumblr_onqwtk4E5l1w5f4jao1_1280.png);
+  background-size:cover;
+}
+
+.title_add{
+  text-transform: uppercase;
+  padding-top: 25px;
+  color: #ffffff;
+  text-shadow: 4px 1px 0px #000000;
+  font-size: 5.1rem;
+  line-height: 170%;
+}

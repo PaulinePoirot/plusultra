@@ -15,38 +15,6 @@
 <body>
   <div id="app">
     <navbar></navbar>
-    <!--<div class="row">
-      <div class="col s10 offset-s2">
-        <div v-for="perso in persos">
-          <div class="col s2 m2">
-            <div class="card small">
-              <div class="card-image">
-                <a :href="perso.urlID">
-                  <img :src="perso.image" />
-                  <span class="card-title">{{ perso.name }}</span>
-                </a>
-              </div>
-              <div class="card-content">
-                <p>{{ perso.body }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col s2 m2">
-          <div class="card small">
-            <div class="card-image">
-              <img src="https://via.placeholder.com/200x200">
-              <span class="card-title">Card Title</span>
-            </div>
-            <a style="top:53%;" href="../wiki/add_character.html" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            <div class="card-content">
-              <p>Ajouter un nouveau caractère ?</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>-->
 
     <div class="card-row">
         <div v-for="(perso, index) in persos"
@@ -68,12 +36,16 @@
                 </p>
             </div>
         </div>
-      <div class="card small">
+        <div    :key="index"
+                :ref="`card_${index}`"
+                @mouseover="hoverCard(index)"
+                @mouseout="hoverCard(index)"
+                class="card">
             <img class="card-image" :class="{'selected': isSelected(index)}" src="https://via.placeholder.com/200x200">
           <a style="top:53%;" href="../wiki/add_character.html" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
           <div class="card-footer">
-            <h3 class="card-title" :class="{'selected': isSelected(index)}">Identité</h3>
-            <p class="card-text" :class="{'selected': isSelected(index)}">Ajouter un nouveau caractère ?</p>
+            <h3 class="card-title" :class="{'selected': isSelected(index)}">Identité secrete</h3>
+            <p class="card-text" :class="{'selected': isSelected(index)}">Nom Prénom</p>
           </div>
         </div>
 
@@ -97,5 +69,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 
 <script src="../javascript/index.js"></script>
+
 
   </html>
