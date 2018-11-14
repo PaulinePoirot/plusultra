@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+const beautify = require("json-beautify");
 const bcrypt = require('bcrypt-nodejs')
 const fs = require('fs')
 
@@ -109,7 +110,7 @@ router.post('/perso/add', function (req, res, next) {
         console.log("ajout du personnage")
         list.push(obj)
 
-        persos = JSON.stringify(list)
+        persos = beautify(list, null, 2, 50)
 
         fs.open('public/javascript/persos.json', 'w', function (err, fd) {
             if (err) throw err;
@@ -146,7 +147,7 @@ router.post('/perso/delete', function (req, res, next) {
 
         const new_list = list.filter(perso => perso.name !== obj.name)
 
-        persos = JSON.stringify(new_list)
+        persos = beautify(new_list, null, 2, 50)
 
         fs.open('public/javascript/persos.json', 'w', function (err, fd) {
             if (err) throw err;
