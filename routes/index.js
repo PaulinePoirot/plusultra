@@ -160,7 +160,7 @@ router.post('/perso/add', function (req, res, next) {
 
         persos = beautify(list, null, 2, 50)
 
-        fs.open('public/javascript/persos.json', 'w', function (err, fd) {
+        fs.open('public/javascript/data/persos.json', 'w', function (err, fd) {
             if (err) throw err;
             fs.write(fd, persos, 'utf8', function (err, written, string) {
                 if (err) throw err
@@ -197,7 +197,7 @@ router.post('/perso/delete', function (req, res, next) {
 
         persos = beautify(new_list, null, 2, 50)
 
-        fs.open('public/javascript/persos.json', 'w', function (err, fd) {
+        fs.open('public/javascript/data/persos.json', 'w', function (err, fd) {
             if (err) throw err;
             fs.write(fd, persos, 'utf8', function (err, written, string) {
                 if (err) throw err
