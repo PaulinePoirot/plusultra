@@ -10,7 +10,7 @@ const navbar =
       <a href="http://localhost:8080/" class="brand-logo">&nbsp;&nbsp;PLUS ULTRA</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="/liste">Personnages</a></li>
-        <li><a href="badges.html">Components</a></li>
+        <li><a href="/administration">Administration</a></li>
         <!-- Dropdown Trigger -->
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
         <li><a href="../wiki/connexion_page.html">connexion <i class="material-icons right">account_circle</i></a></li>

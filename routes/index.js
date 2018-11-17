@@ -19,6 +19,11 @@ router.get('/liste', function (req, res, next) {
     res.sendFile('list_character.html', {root: __dirname + '/../public/wiki'})
 })
 
+router.get('/administration', function (req, res, next) {
+    console.log("GET /wiki/administration")
+    res.sendFile('administration_page.html', {root: __dirname + '/../public/wiki'})
+})
+
 router.get('/connexion', function (req, res, next) {
     console.log("GET /connexion")
     res.sendFile('connexion_page.html', {root: __dirname + '/../public/wiki'})
@@ -26,6 +31,8 @@ router.get('/connexion', function (req, res, next) {
 
 router.post('/login', function (req, res, next) {
     console.log("POST /login")
+
+    console.log(req.body)
 
     const user = req.body.username
     const pass = req.body.password // password is "admin"
