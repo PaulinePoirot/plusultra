@@ -9,8 +9,9 @@ body {
 }
 
 footer {
-    position: absolute;
-    width: 100%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .navbar {

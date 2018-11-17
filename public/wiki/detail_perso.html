@@ -19,7 +19,11 @@
           <div v-for="perso in persos">
             <div class="col s10">
                 <ul class="collection">
-                    <li class="collection-item"><h3>{{perso.name}}</h3>
+                    <li class="collection-item">
+                    <div>
+                      <h3>{{perso.name}}</h3>
+                      <button v-on:click="update_perso(perso.pseudo)" class=" update secondary-content waves-effect waves-light btn-small blue darken-4"><i class="material-icons right">update</i>Modifier</button>
+                      </div
                     </li>
                     <li class="collection-item">{{perso.info}}</li>
                 </ul>

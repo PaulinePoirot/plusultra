@@ -15,16 +15,12 @@
     <navbar></navbar>
 
     <div class="row">
-
-
-        <ul class="collection with-header">
-            <li class="collection-header"><h4>Liste des personnages</h4></li>
-                  <div v-for="perso in persos">
-            <li class="collection-item"><div>{{perso.name}}<a class="secondary-content waves-effect waves-light btn-small"><i class="material-icons right">delete</i>supprimer</a></div></li>
-          </div>
-
-          </ul>
-
+      <ul class="collection with-header">
+        <li class="collection-header"><h4>Liste des personnages</h4></li>
+        <div v-for="perso in persos">
+          <li class="collection-item"><div>{{perso.name}} — {{perso.pseudo}}<button v-on:click="delete_perso(perso.pseudo)" class="secondary-content waves-effect waves-light btn-small blue darken-4"><i class="material-icons right">delete</i>supprimer</button></div></li>
+        </div>
+      </ul>
     </div>
 
     <footer-bar></footer-bar>
@@ -46,4 +42,4 @@
 <script src="../javascript/index.js"></script>
 
 
-  </html>
+</html>

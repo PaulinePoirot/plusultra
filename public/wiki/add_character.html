@@ -17,7 +17,7 @@
       <div class="add"><div class="title_add">Création d'un nouveau personnage</div></div>
 
       <div class="row addnew">
-        <form class="col s10 offset-s2">
+        <form id="new_perso" class="col s10 offset-s2">
           <div class="row">
             <div class="input-field col s4">
               <input id="name" type="text" class="materialize-textarea" >
@@ -116,9 +116,9 @@
             </div>
           </div>
 
-          <a href="http://localhost:8080/wiki/list_character.html"><button class="btn waves-effect waves-light blue darken-4" name="back">Back <i class="material-icons right">backspace</i> </button></a>
+          <a href="/list"><button class="btn waves-effect waves-light blue darken-4" name="back">Back <i class="material-icons right">backspace</i> </button></a>
 
-          <button class="btn waves-effect waves-light blue darken-4 " type="submit" name="action">Submit <i class="material-icons right">send</i> </button>
+          <button v-on:click="add_perso" class="btn waves-effect waves-light blue darken-4" type="submit" name="action">Submit <i class="material-icons right">send</i> </button>
         </form>
       </div>
     </container>
