@@ -31,18 +31,13 @@ methods: {
     });
   },
   ready() {
-    //  this.random = Math.floor(Math.random() * this.quotes.length);
-    // this.quote = this.quotes[this.random];
+    this.random = Math.floor(Math.random() * this.quotes.length);
+    this.quote = this.quotes[this.random];
 
     this.loadQuotes()
     setInterval(function () {
       this.loadQuotes()
     }.bind(this), 30000)
-  },
-  ready: function () {
-
-    this.random = Math.floor(Math.random() * this.quotes.length);
-    this.quote = this.quotes[this.random];
   }
 },
 created() {
@@ -131,6 +126,7 @@ let vue = new Vue({
   el: '#app',
   data: {
     persos: [],
+    quotes: [],
     username: "",
     password: "",
     random: 0,
@@ -141,6 +137,10 @@ let vue = new Vue({
     loadData () {
       axios.get('http://localhost:8080/persos').then((response) => {
         this.persos = response.data
+      });
+
+      axios.get('http://localhost:8080/quotes').then((quoquo) => {
+        this.quotes = quoquo.data
       });
     },
     delete_perso(pseudo){
@@ -156,6 +156,7 @@ let vue = new Vue({
     update_perso(pseudo){
       console.log('michel',axios.post('http://localhost:8080/persos/' + pseudo))
     },
+
     ready() {
       this.loadData()
       setInterval(function () {
