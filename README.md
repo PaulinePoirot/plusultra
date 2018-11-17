@@ -25,6 +25,9 @@ Back-end technologies: Node.js (Express)
 - [x] Web server built with Node.js and Express
 - [ ] User authentication (and registration if your application requires it)
 - [ ] CRUD interactions with the server (Create, Read, Update, Delete)
+* - [x] Read
 * - [x] Create
+* - [ ] Delete
+* - [ ] Update
 - [x] Data persistence is optional: in-memory is good enough, but you can try to write to the file system (no database!)
 - [ ] Deployed on Google Cloud Platform or Glitch
