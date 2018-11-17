@@ -131,18 +131,19 @@ let vue = new Vue({
   },
   methods: {
     loadData () {
-      axios.get('http://localhost:8080/persos').then((response) => {
+      axios.get('/persos').then((response) => {
         this.persos = response.data
       });
 
-      axios.get('http://localhost:8080/quotes').then((quoquo) => {
+      axios.get('/quotes').then((quoquo) => {
         this.quotes = quoquo.data
       });
     },
     delete_perso(pseudo){
-      pseudo = pseudo.replace(/\s/g,'')
-
-      axios.delete('http://localhost:8080/persos/' + pseudo).then((response) => {
+      var lowerCasePseudo = pseudo.split(' ').join('').toLowerCase()
+      axios.post('/perso/delete',{
+        "pseudo" : lowerCasePseudo
+      } ).then((response) => {
         console.log("222222222", this.persos = response.data)
       });
     },
