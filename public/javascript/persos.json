@@ -3,13 +3,13 @@
     "pseudo": "All Might",
     "name": "Toshinori Yagi",
     "data": {
-      "Anniversaire": "10 Juin",
-      "Âge": "?",
-      "Genre": "masculin",
-      "Taille": "220cm",
-      "Occupation": "n°1 Héros",
-      "Affiliation": "Lycée Yuei",
-      "Alter": "One For All"
+      "anniversaire": "10 Juin",
+      "age": "?",
+      "genre": "masculin",
+      "taille": "220cm",
+      "occupation": "n°1 Héros",
+      "affiliation": "Lycée Yuei",
+      "alter": "One For All"
     },
     "info": "Toshinori Yagi (俊典, Yagi Toshinori), mieux connu sous le surnom de All Might (オールマイト, Ōru Maito), est le deutéragoniste du manga My Hero Academia. Toshinori est le premier héros le plus puissant et le \"symbole de la paix\" qui a inspiré toute une génération de héros, y compris Izuku Midoriya, auquel il a passé le flambeau du One for All. Il est connu pour son attitude joyeuse et souriante et son image publique comme étant le Héros n°1 incontesté, mais son temps pour l'héroïsme est de plus en plus court, un fait connu uniquement par Izuku Midoriya.",
     "apparence": "Peu de gens connaissent sa véritable apparence, qui est l'opposé total de sa forme héroïque. En effet, All Might est un tas de muscles imposant, tandis que Toshinori Yagi est d'aspect rachitique, menu et a le dos légèrement voûté.",
@@ -23,13 +23,13 @@
     "pseudo": "Lemillion",
     "name": "Mirio Togata",
     "data": {
-      "Anniversaire": "15 Juillet",
-      "Âge": "18",
-      "Genre": "masculin",
-      "Taille": "181cm",
-      "Occupation": "Etudiant",
-      "Affiliation": "Lycée Yuei",
-      "Alter": "Perméation"
+      "anniversaire": "15 Juillet",
+      "age": "18",
+      "genre": "masculin",
+      "taille": "181cm",
+      "occupation": "Etudiant",
+      "affiliation": "Lycée Yuei",
+      "alter": "Perméation"
     },
     "info": "Mirio Togata (通形ミリオ, Tōgata Mirio) est un élève de terminale du Lycée Yuei ayant comme pseudonyme, Lemillion (ルミリオン, Rumirion). Il fait partie des trois meilleurs étudiant de l'académie avec Tamaki Amajiki et Nejire Hado. Il était l'héritier pressenti pour détenir le One For All avant que Toshinori Yagi ne décide de le transférer à Izuku Midoriya. Il est considéré comme celui qui est le plus proche de devenir le numéro 1, en comptant les héros pros.",
     "apparence": "Mirio est un jeune homme blond au physique fin, mais très musclé. Il a un style cartoonisé. Il porte de court cheveux blond coiffé avec une houppette. Son costume comporte un large masque recouvrant ses yeux et ses oreilles. Il porte un t-shirt avec le nombre un million dessus, un pantalon et des bottes noires ; il est fait à partir de son ADN pour qu'il puisse résister quand il se sert de son Alter. Il a des cicatrices sur ses bras et possède des yeux très simplistes de couleurs violets. Lorsqu'il était plus jeune il portait une queue de cheval basse.",
@@ -43,13 +43,13 @@
     "pseudo": "Sun Eater",
     "name": "Tamaki Amajiki",
     "data": {
-      "Anniversaire": "4 Mars",
-      "Âge": "17",
-      "Genre": "masculin",
-      "Taille": "177cm",
-      "Occupation": "Etudiant",
-      "Affiliation": "Lycée Yuei",
-      "Alter": "Assimilation"
+      "anniversaire": "4 Mars",
+      "age": "17",
+      "genre": "masculin",
+      "taille": "177cm",
+      "occupation": "Etudiant",
+      "affiliation": "Lycée Yuei",
+      "alter": "Assimilation"
     },
     "info": "Tamaki Amajiki (天 喰 環, Amajiki Tamaki) est un élèves de Terminale du lycée Yuei. Il fait partie des trois meilleurs étudiant du lycée avec Mirio Togata et Nejire Hado.",
     "apparence": "Tamaki est un jeune homme mince qui a des cheveux noir tirant sur le bleu foncé désordonnés ainsi que des oreilles très pointues.",
@@ -63,13 +63,13 @@
     "pseudo": "Crazy Lady",
     "name": "Himiko Toga",
     "data": {
-      "Anniversaire": "4 Juin",
-      "Âge": "15",
-      "Genre": "féminin",
-      "Taille": "160cm",
-      "Occupation": "Vilaine",
-      "Affiliation": "Alliance des super-vilains",
-      "Alter": "Métamorphose"
+      "anniversaire": "4 Juin",
+      "age": "15",
+      "genre": "féminin",
+      "taille": "160cm",
+      "occupation": "Vilaine",
+      "affiliation": "Alliance des super-vilains",
+      "alter": "Métamorphose"
     },
     "info": "Himiko Toga (渡我被身子 Toga Himiko) est une Vilaine qui fait partie de l'Alliance des super-vilains. Elle a rejoint l'organisation criminelle, ayant été inspirée par Stain. Elle veut rendre la vie plus simple en tuant les gens autour d'elle.",
     "apparence": "Himiko est une jeune fille mince, aux cheveux blonds et aux yeux jaunes, elle a une frange et deux chignons en bataille. Elle aborde souvent un sourire avec des canines prononcées. Elle porte un cardigan beige trop grand, un uniforme de marin et des grandes chaussettes noires ainsi que des mocassins (uniforme d'école japonais) . Elle a souvent un couteau sur elle.",
@@ -78,5 +78,15 @@
     "aptitudes": "En ingérant le sang de ses victimes, Himiko est en mesure de prendre leurs apparences. En fonction de la quantité de sang qu’elle ingère, sa transformation peut durer une fraction de seconde comme une journée. Si Himiko ingère le sang de plusieurs personnes, elle sera alors en mesure de se métamorphoser à loisir en ses personnes. Lorsqu'elle change d'apparence, elle revêt momentanément une apparence assez aqueuse. Son alter lui permet aussi de créer les vêtements de ses victimes, mais il faudra pour cela qu’elle soit nue.",
     "image": "../theme/img/icon_toga.jpg",
     "urlID": "../wiki/toga.html"
+  },
+  {
+    "pseudo": "Blablabla",
+    "name": "Nom Commun",
+    "apparence": "Bogos",
+    "personnalite": "bogos",
+    "bio": "a vécu",
+    "competences": "bogositude",
+    "vignette": "Capture d’écran 2018-11-10 à 14.32.03.png",
+    "image": "Capture d’écran 2018-11-10 à 14.32.03.png"
   }
 ]

@@ -4,9 +4,7 @@ var router = express.Router();
 const beautify = require("json-beautify");
 const bcrypt = require('bcrypt-nodejs')
 const fs = require('fs')
-const multer = require('multer')
-
-const upload = multer({dest: "./img"})
+const fileupload = require("express-fileupload");
 
 router.get('/', function (req, res, next) {
     console.log("GET /")
@@ -95,7 +93,7 @@ router.get('/users', function (req, res, next) {
     res.json(JSON.parse(users))
 })
 
-router.post('/perso/add', upload.single("vignette"), function (req, res, next) {
+router.post('/perso/add', function (req, res, next) {
     console.log('POST /perso/add')
 
     /*const tempPath = req.file.path;
@@ -137,7 +135,7 @@ router.post('/perso/add', upload.single("vignette"), function (req, res, next) {
 
     if (exists) {
         console.log("le perso existe déjà")
-        res.send("personnage existant")
+        res.send("KO")
     } else {
         console.log("ajout du personnage")
         list.push(obj)
@@ -154,7 +152,7 @@ router.post('/perso/add', upload.single("vignette"), function (req, res, next) {
                 if (err) throw err;
             });
         });
-        res.json(list)
+        res.send("OK")
     }
 })
 
