@@ -2,29 +2,38 @@
   {
     "name": "Tamaki Amajiki",
     "pseudo": "Sun Eater",
-    "body": "Tamaki Amajiki est un élèves de Terminale du lycée Yuei. Il fait partie des trois meilleurs étudiant du lycée...",
-    "image": "../theme/img/icon_tamaki.jpg",
-    "urlID": "../wiki/tamaki.html"
+    "vignette": "../theme/img/icon_tamaki.jpg",
+    "infos": "Tamaki Amajiki (天 喰 環, Amajiki Tamaki) est un élèves de Terminale du lycée Yuei. Il fait partie des trois meilleurs étudiant du lycée avec Mirio Togata et Nejire Hado.",
+    "apparence": "Tamaki est un jeune homme mince qui a des cheveux noir tirant sur le bleu foncé désordonnés ainsi que des oreilles très pointues.",
+    "personalite": "Tamaki est une personne extrêmement pessimiste et défaitiste. Timide et introverti ce dernier se colle dans un coin du mur dos aux gens lorsqu'il déprime. Il admire énormément son ami Mirio Togata qu'il compare à un soleil. En cas de force majeur, ce dernier est une valeur sûre, capable de se sacrifier afin de retarder plusieurs vilains tout en permettant aux héros professionnel de conserver leurs forces.",
+    "biographie": "Tamaki est introduit se présentant sous la demande de Shota Aizawa avec à ses côtés ses camarades des Trois Grands. Cependant, Tamaki est surmonté d'anxiété et s'efforce d'imaginer les élèves de la seconde A comme pommes de terre. Finalement, il renonce à essayer et à se retourner. Comme Mirio défie toute la seconde A, Tamaki avertit Mirio de se retenir pour ne pas frustrer complètement ses ennemis quand ils perdent. Alors que la seconde A s'émerveille de l'Alter de Mirio, Tamaki se croit combien il est inexpérimenté pour ne pas reconnaître tout le travail acharné que Mirio avait besoin pour affiner et maîtriser son Alter. Hado souligne à Tamaki que Mirio est devenu très fort, seulement pour Tamaki pour lui répondre qu'il a été fort depuis son enfance, mais qu'il a besoin d'apprendre à améliorer les amateurs. Après la bataille, la seconde A est frustrée parce qu'ils ne savaient pas comment se battre. Hado veut expliquer comment fonctionne son caprice, mais Tamaki lui dit que c'est le moment de parler à Mirio.",
+    "competence": "Son alter permet a Tamaki de reproduire certaines caractéristiques physique des choses qu'il mange. Il peut faire de multiples transformation à différents endroits sur son corps simultanément. Cependant, il ne peut manifester que les caractéristiques des aliments qui sont encore dans son système digestif. Il a également montré qu'il peut utiliser son alter sur des objets qui ne sont pas nécessairement de la nourriture (par exemple des cristaux). Il est donc suggéré que sont alter pourrait être utiliser avec n'importe quoi pourvu qu'il puisse le manger.",
+    "birth": "4 Mars",
+    "year": "17 ans",
+    "sexe": "Masculin",
+    "height": "177cm",
+    "occupation": "Etudiant",
+    "affiliation": "Lycée Yuei",
+    "alter": "Assimilation",
+    "image": "../theme/img/tamaki.png",
+    "urlID": "../wiki/perso.html"
   },
   {
     "name": "Mirio Togata",
     "pseudo": "Lemillion",
-    "body": "Mirio Togata est un élève de terminale du Lycée Yuei ayant comme pseudonyme, Lemillion. Il fait partie des ...",
-    "image": "../theme/img/icon_mirio.jpg",
+    "vignette": "../theme/img/icon_mirio.jpg",
     "urlID": "../wiki/mirio.html"
   },
   {
     "name": "Toshinori Yagi",
     "pseudo": "All Might",
-    "body": "Toshinori est le premier héros le plus puissant et le 'symbole de la paix' qui a inspiré toute une génération",
-    "image": "../theme/img/icon_yagi.jpg",
+    "vignette": "../theme/img/icon_yagi.jpg",
     "urlID": "../wiki/yagi.html"
   },
   {
     "name": "Himiko Toga",
     "pseudo": "Crazy Lady",
-    "body": "Himiko Toga est une vilaine qui fait partie de l'Alliance des super-vilains. Elle a rejoint l'organisation ...",
-    "image": "../theme/img/icon_toga.jpg",
+    "vignette": "../theme/img/icon_toga.jpg",
     "urlID": "../wiki/toga.html"
   }
 ]

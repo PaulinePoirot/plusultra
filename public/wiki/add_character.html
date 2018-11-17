@@ -33,8 +33,15 @@
                 <input type="file" multiple>
               </div>
               <div class="file-path-wrapper">
-                <input class="file-path validate" type="text" placeholder="Image vignette">
+                <input id="vignette" class="file-path validate" type="text" placeholder="Image vignette">
               </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s10">
+              <textarea id="info" class="materialize-textarea"></textarea>
+              <label for="info">Résumé</label>
             </div>
           </div>
 
@@ -61,8 +68,8 @@
 
           <div class="row">
             <div class="input-field col s10">
-              <textarea id="comptence" class="materialize-textarea"></textarea>
-              <label for="comptence">Aptitudes et Compétences</label>
+              <textarea id="competence" class="materialize-textarea"></textarea>
+              <label for="competence">Aptitudes et Compétences</label>
             </div>
           </div>
 
@@ -104,12 +111,12 @@
                 <input type="file" multiple>
               </div>
               <div class="file-path-wrapper">
-                <input class="file-path validate" type="text" placeholder="Image personnage">
+                <input id="image" class="file-path validate" type="text" placeholder="Image personnage">
               </div>
             </div>
           </div>
 
-          <a href="http://localhost:8080/wiki/list_character.html "><button class="btn waves-effect waves-light blue darken-4" name="back">Back <i class="material-icons right">backspace</i> </button></a>
+          <a href="http://localhost:8080/wiki/list_character.html"><button class="btn waves-effect waves-light blue darken-4" name="back">Back <i class="material-icons right">backspace</i> </button></a>
 
           <button class="btn waves-effect waves-light blue darken-4 " type="submit" name="action">Submit <i class="material-icons right">send</i> </button>
         </form>
