@@ -118,10 +118,6 @@ Vue.component('carousel-item', {
 });
 
 
-Vue.component("characters-component", {
-  template: characters,
-});
-
 let vue = new Vue({
   el: '#app',
   data: {
