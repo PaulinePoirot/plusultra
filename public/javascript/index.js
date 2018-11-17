@@ -140,15 +140,11 @@ let vue = new Vue({
     methods: {
       loadData () {
         axios.get('http://localhost:8080/persos').then((response) => {
-          console.log("222  ")
-
+          console.log("222")
             this.persos = response.data
           });
         },
         ready() {
-          //  this.random = Math.floor(Math.random() * this.quotes.length);
-           // this.quote = this.quotes[this.random];
-
             this.loadData()
             setInterval(function () {
               this.loadData()

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <link rel="shortcut icon" href="https://vignette.wikia.nocookie.net/bokunoheroacademia/images/6/64/Favicon.ico/revision/latest?cb=20141231001855&amp;path-prefix=fr">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/list_character.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/index.css" media="all" />
+  <meta charset="utf-8">
+  <title>PLUS ULTRA</title>
+</head>
+
+<body>
+  <div id="app">
+    <navbar></navbar>
+
+    <div class="row">
+
+
+        <ul class="collection with-header">
+            <li class="collection-header"><h4>Liste des personnages</h4></li>
+                  <div v-for="perso in persos">
+            <li class="collection-item"><div>{{perso.name}}<a class="secondary-content waves-effect waves-light btn-small"><i class="material-icons right">delete</i>supprimer</a></div></li>
+          </div>
+
+          </ul>
+
+    </div>
+
+    <footer-bar></footer-bar>
+
+  </div>
+</body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="../theme/components/footer.js"></script>
+<script src="../theme/components/navbar.js"></script>
+<script src="../theme/components/characters.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+
+<script src="../javascript/index.js"></script>
+
+
+  </html>
