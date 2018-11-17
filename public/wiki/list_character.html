@@ -5,7 +5,7 @@
   <link rel="shortcut icon" href="https://vignette.wikia.nocookie.net/bokunoheroacademia/images/6/64/Favicon.ico/revision/latest?cb=20141231001855&amp;path-prefix=fr">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <link rel="stylesheet" type="text/css" href="../stylesheets/list_character.css" media="all" />
-  <link rel="stylesheet" type="text/css" href="../stylesheets/index.css" media="all" />
+  <!-- <link rel="stylesheet" type="text/css" href="../stylesheets/index.css" media="all" /> -->
 
 
   <meta charset="utf-8">
@@ -16,13 +16,21 @@
   <div id="app">
     <navbar></navbar>
 
-    <div class="card-row">
+    <div class="row">
+      <div class="card col s2">
+        <img class="card-image" src="https://via.placeholder.com/200x200">
+        <a style="top:53%;" href="../wiki/add_character.html" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        <div class="card-footer">
+          <h3 class="card-title">Identité secrete</h3>
+          <p class="card-text" >Nom Prénom</p>
+        </div>
+      </div>
+
       <div v-for="(perso, index) in persos"
       :key="index"
       :ref="`card_${index}`"
-      @mouseover="hoverCard(index)"
       @mouseout="hoverCard(-1)"
-      class="card">
+      class="card col s2">
 
       <a :href="perso.urlID">
         <img class="card-image" :class="{'selected': isSelected(index)}"
@@ -36,16 +44,8 @@
         </p>
       </div>
     </div>
-
-    <div class="card">
-      <img class="card-image" src="https://via.placeholder.com/200x200">
-      <a style="top:53%;" href="../wiki/add_character.html" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-      <div class="card-footer">
-        <h3 class="card-title">Identité secrete</h3>
-        <p class="card-text" >Nom Prénom</p>
-      </div>
-    </div>
   </div>
+
   <footer-bar></footer-bar>
 
 </div>

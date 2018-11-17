@@ -9,6 +9,25 @@ body {
 }
 footer{
   position: absolute;
-  bottom: 0;
   width: 100%;
+}
+
+.card {
+    margin-left: 10px!important;
+    position: relative;
+    background-color: #FFFFFF;
+    height: 370px;
+    width: 240px;
+}
+
+.card-image {
+    position: absolute;
+    margin: auto;
+    height: 220px;
+    min-width: 100%;
+}
+
+.row{
+  margin-top: 10px;
+  margin-left: 210px!important;
 }
