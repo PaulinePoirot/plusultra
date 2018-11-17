@@ -4,7 +4,7 @@ var router = express.Router();
 const beautify = require("json-beautify");
 const bcrypt = require('bcrypt-nodejs')
 const fs = require('fs')
-const fileupload = require("express-fileupload");
+const path = require('path')
 
 router.get('/', function (req, res, next) {
     console.log("GET /")
@@ -81,7 +81,7 @@ router.get('/persos', function (req, res, next) {
     res.json(JSON.parse(persos))
 })
 
-router.get('/persos/:id', function (req, res, next) {
+router.get('/perso/:id', function (req, res, next) {
     console.log("GET /persos/" + req.params.id)
 
     var resultat = JSON.parse('{"error":"personnage non trouvé"}')
@@ -101,36 +101,49 @@ router.get('/users', function (req, res, next) {
 router.post('/perso/add', function (req, res, next) {
     console.log('POST /perso/add')
 
-    /*const tempPath = req.file.path;
-    const targetPath = path.join(__dirname, "./img/image.png");
+    console.log(req.body, req.files)
 
-    if (path.extname(req.file.originalname).toLowerCase() === ".png") {
-        fs.rename(tempPath, targetPath, err => {
-            if (err) return handleError(err, res);
+    var pseudo = req.body.pseudo.split(' ').join('').toLowerCase()
 
-            res.status(200)
-                .contentType("text/plain")
-                .end("File uploaded!");
-        });
-    } else {
-        fs.unlink(tempPath, err => {
-            if (err) return handleError(err, res);
+    if (req.files.vignette) {
+        var vignette = req.files.vignette
+        let type=null
 
-            res.status(403)
-                .contentType("text/plain")
-                .end("Only .png files are allowed!");
-        });
-    }*/
+        if (req.files.vignette.mimetype === 'image/png') type = '.png'
+        if (req.files.vignette.mimetype === 'image/jpg') type = '.jpg'
+        if (req.files.vignette.mimetype === 'image/jpeg') type = '.jpeg'
 
-    console.log(req.body)
+        var vignettePath = path.join(__dirname, '/../public/theme/img/vignette/'+pseudo+type)
+        var vignettePathFromRouter = '../theme/img/vignette/'+pseudo+type
 
-    console.log("files ?")
-    console.log(req.files)
-    console.log(req.file)
+
+        vignette.mv(vignettePath, function (err) {
+            if (err) console.log(err)
+        })
+    }
+
+    if (req.files.image) {
+        var image = req.files.image
+        let type=null
+
+        if (req.files.image.mimetype === 'image/png') type = '.png'
+        if (req.files.image.mimetype === 'image/jpg') type = '.jpg'
+        if (req.files.image.mimetype === 'image/jpeg') type = '.jpeg'
+
+        var imagePath = path.join(__dirname, '/../public/theme/img/'+pseudo+type)
+        var imagePathFromRouter = '../theme/img/'+pseudo+type
+
+        image.mv(imagePath, function (err) {
+            if (err) console.log(err)
+        })
+    }
 
     var list = JSON.parse(persos)
     var obj = req.body
     var exists = false
+
+    obj.vignette = vignettePathFromRouter
+    obj.image = imagePathFromRouter
 
     list.forEach(function (elem) {
         if (elem.pseudo === obj.pseudo) {
@@ -147,7 +160,7 @@ router.post('/perso/add', function (req, res, next) {
 
         persos = beautify(list, null, 2, 50)
 
-        fs.open('public/javascript/data/persos.json', 'w', function (err, fd) {
+        fs.open('public/javascript/persos.json', 'w', function (err, fd) {
             if (err) throw err;
             fs.write(fd, persos, 'utf8', function (err, written, string) {
                 if (err) throw err
@@ -184,7 +197,7 @@ router.post('/perso/delete', function (req, res, next) {
 
         persos = beautify(new_list, null, 2, 50)
 
-        fs.open('public/javascript/data/persos.json', 'w', function (err, fd) {
+        fs.open('public/javascript/persos.json', 'w', function (err, fd) {
             if (err) throw err;
             fs.write(fd, persos, 'utf8', function (err, written, string) {
                 if (err) throw err
