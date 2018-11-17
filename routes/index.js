@@ -170,7 +170,7 @@ router.post('/perso/add', function (req, res, next) {
                 if (err) throw err;
             });
         });
-        res.send("OK")
+        res.redirect('/liste')
     }
 })
 
