@@ -182,18 +182,18 @@ router.post('/perso/delete', function (req, res, next) {
     var exists = false
 
     list.forEach(function (elem) {
-        if (elem.name === obj.name) {
+        if (elem.pseudo.split(' ').join('').toLowerCase() === obj.pseudo.split(' ').join('').toLowerCase()) {
             exists = true
         }
     })
 
     if (!exists) {
-        console.log("le perso n'existe")
+        console.log("le perso n'existe pas")
         res.send("personnage n'existe pas, ne peut être supprimé")
     } else {
         console.log("suppression du personnage")
 
-        const new_list = list.filter(perso => perso.name !== obj.name)
+        const new_list = list.filter(perso => perso.pseudo.split(' ').join('').toLowerCase() !== obj.pseudo.split(' ').join('').toLowerCase())
 
         persos = beautify(new_list, null, 2, 50)
 
