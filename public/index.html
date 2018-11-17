@@ -2,122 +2,78 @@
 <html lang="fr">
 
 <head>
-  <link rel="shortcut icon" href="https://vignette.wikia.nocookie.net/bokunoheroacademia/images/6/64/Favicon.ico/revision/latest?cb=20141231001855&amp;path-prefix=fr">
+  <link rel="shortcut icon"
+  href="https://vignette.wikia.nocookie.net/bokunoheroacademia/images/6/64/Favicon.ico/revision/latest?cb=20141231001855&amp;path-prefix=fr">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-  <link rel="stylesheet" type="text/css" href="test.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/index.css" media="all"/>
 
   <meta charset="utf-8">
   <title>PLUS ULTRA</title>
 </head>
 
 <body>
-  <nav>
-     <div class="nav-wrapper blue darken-4">
-       <a href="#" class="brand-logo">&nbsp;&nbsp;PLUS ULTRA</a>
-       <ul id="nav-mobile" class="right hide-on-med-and-down">
-         <li><a href="sass.html">Sass</a></li>
-         <li><a href="badges.html">Components</a></li>
-         <li><a href="collapsible.html">JavaScript</a></li>
-       </ul>
-     </div>
-   </nav>
+  <div id="app">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<container>
-  <div class="row">
-  <div class="col s2 m2">
-    <div class="card small">
-      <div class="card-image"><a href="#">
-        <img src="stylesheets/test.jpg">
-        <span class="card-title">Card Title</span>
-      </a></div>
-      <div class="card-content">
-        <p>I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col s2 m2">
-    <div class="card small">
-      <div class="card-image"><a href="#">
-        <img src="stylesheets/test.jpg">
-        <span class="card-title">Card Title</span>
-      </a></div>
-      <div class="card-content">
-        <p>I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col s2 m2">
-    <div class="card small">
-      <div class="card-image"><a href="#">
-        <img src="stylesheets/test.jpg">
-        <span class="card-title">Card Title</span>
-      </a></div>
-      <div class="card-content">
-        <p>I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col s2 m2">
-    <div class="card small">
-      <div class="card-image"><a href="#">
-        <img src="stylesheets/test.jpg">
-        <span class="card-title">Card Title</span>
-      </a></div>
-      <div class="card-content">
-        <p>I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively.</p>
-      </div>
-    </div>
-  </div>
-</div>
-</container>
-</body>
-
-
-<footer class="page-footer blue darken-4">
-  <div class="container">
+    <navbar></navbar>
     <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">Footer Content</h5>
-        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-      </div>
-      <div class="col l4 offset-l2 s12">
-        <div id="app">
-        <div class="quote-box">
-             <h6 class="text">{{quote}}</h6>
-           </div>
-         </div>
+      <div class="center-align">
+        <carousel-component>
+          <carousel-item>
+            <img src="https://steemitimages.com/0x0/https://dereksmcgrath.files.wordpress.com/2017/04/my-hero-academia-e16-izuku-blasts-to-win-part-3-gif-v2.gif?w=620"
+            alt="">
+          </carousel-item>
+          <carousel-item>
+            <img src="https://media.giphy.com/media/1g3A0gpaidxWcL9Mfo/giphy.gif" alt="">
+          </carousel-item>
+          <carousel-item>
+            <img src="https://media.giphy.com/media/FbCPKOvoNIgX6/giphy.gif" alt="">
+          </carousel-item>
+          <carousel-item>
+            <img src="https://steamusercontent-a.akamaihd.net/ugc/922555643939190686/5E4C19F0894BF4E6EC1731203C36769432A30B00/"
+            alt="">
+          </carousel-item>
+        </carousel-component>
       </div>
     </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container">
-      © 2014 Copyright Text
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-    </div>
-  </div>
-</footer>
 
+    <div class="card-row">
+      <div v-for="(perso, index) in persos"
+      v-if="index<=3"
+      :key="index"
+      :ref="`card_${index}`"
+      @mouseover="hoverCard(index)"
+      @mouseout="hoverCard(-1)"
+      class="card"><div>
+
+        <a :href="perso.urlID">
+          <img class="card-image" :class="{'selected': isSelected(index)}"
+          :src="perso.vignette" >
+        </a>
+
+        <div class="card-footer">
+          <h3 class="card-title" :class="{'selected': isSelected(index)}">{{perso.pseudo}}</h3>
+          <p class="card-text" :class="{'selected': isSelected(index)}">
+            {{perso.name}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer-bar></footer-bar>
+</div>
+</body>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="theme/components/footer.js"></script>
+<script src="theme/components/navbar.js"></script>
+<script src="theme/components/characters.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 <script src="javascript/index.js"></script>
-
 </html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <link rel="shortcut icon"
+          href="https://vignette.wikia.nocookie.net/bokunoheroacademia/images/6/64/Favicon.ico/revision/latest?cb=20141231001855&amp;path-prefix=fr">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/connexion_page.css" media="all"/>
+
+    <meta charset="utf-8">
+    <title>PLUS ULTRA</title>
+</head>
+
+<body>
+<div id="app">
+    <navbar></navbar>
+    <div class="row">
+        <form class="col s4 offset-s4" method="post" action="/login">
+            <div class="row">
+                <div class="input-field">
+                    <label for="username">Identifiant</label>
+                    <input id="username" type="text" name="username" class="materialize-textarea validate">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <label for="password">Mot de passe</label>
+                    <input id="password" type="password" name="password" class="materialize-textarea validate">
+                </div>
+            </div>
+
+            <button class="btn waves-effect waves-light right blue darken-4" type="submit">
+                Connexion<i class="material-icons right">send</i></button>
+        </form>
+    </div>
+
+    <footer-bar></footer-bar>
+</div>
+</body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<script src="../theme/components/footer.js"></script>
+<script src="../theme/components/navbar.js"></script>
+<script src="../theme/components/characters.js"></script>
+
+<script src="../javascript/index.js"></script>
