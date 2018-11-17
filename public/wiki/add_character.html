@@ -17,20 +17,20 @@
       <div class="add"><div class="title_add">Création d'un nouveau personnage</div></div>
 
       <div class="row addnew">
-        <form class="col s10 offset-s2">
+        <form class="col s10 offset-s2" method="post" enctype="multipart/form-data" action="/perso/add">
           <div class="row">
             <div class="input-field col s4">
-              <input id="name" type="text" class="materialize-textarea" >
+              <input id="name" type="text" class="materialize-textarea" name="name">
               <label for="name">Prénom et Nom</label>
             </div>
             <div class="input-field col s2">
-              <input id="pseudo" type="text" class="materialize-textarea" >
+              <input id="pseudo" type="text" class="materialize-textarea" name="pseudo">
               <label for="pseudo">Pseudo</label>
             </div>
             <div class="file-field input-field col s4">
               <div class="btn blue darken-4">
                 <span>File</span>
-                <input type="file" multiple>
+                <input type="file" name="vignette">
               </div>
               <div class="file-path-wrapper">
                 <input class="file-path validate" type="text" placeholder="Image vignette">
@@ -40,68 +40,68 @@
 
           <div class="row">
             <div class="input-field col s10">
-              <textarea id="apparence" class="materialize-textarea"></textarea>
+              <textarea id="apparence" class="materialize-textarea" name="apparence"></textarea>
               <label for="apparence">Apparence</label>
             </div>
           </div>
 
           <div class="row">
             <div class="input-field col s10">
-              <textarea id="personalite" class="materialize-textarea"></textarea>
+              <textarea id="personalite" class="materialize-textarea" name="personnalite"></textarea>
               <label for="personalite">Personnalité</label>
             </div>
           </div>
 
           <div class="row">
             <div class="input-field col s10">
-              <textarea id="biographie" class="materialize-textarea"></textarea>
+              <textarea id="biographie" class="materialize-textarea" name="biographie"></textarea>
               <label for="biographie">Biographie</label>
             </div>
           </div>
 
           <div class="row">
             <div class="input-field col s10">
-              <textarea id="comptence" class="materialize-textarea"></textarea>
+              <textarea id="comptence" class="materialize-textarea" name="aptitudes"></textarea>
               <label for="comptence">Aptitudes et Compétences</label>
             </div>
           </div>
 
           <div class="row">
             <div class="input-field col s2">
-              <input id="birth" type="text" class="materialize-textarea" >
+              <input id="birth" type="text" class="materialize-textarea" name="anniversaire">
               <label for="birth">Date d'anniversaire</label>
             </div>
             <div class="input-field col s2">
-              <input id="year" type="text" class="materialize-textarea" >
+              <input id="year" type="text" class="materialize-textarea" name="age">
               <label for="year">Âge</label>
             </div>
             <div class="input-field col s2">
-              <input id="sexe" type="text" class="materialize-textarea" >
+              <input id="sexe" type="text" class="materialize-textarea" name="genre">
               <label for="sexe">Genre</label>
             </div>
             <div class="input-field col s2">
-              <input id="height" type="text" class="materialize-textarea" >
+              <input id="height" type="text" class="materialize-textarea" name="taille">
               <label for="height">Taille</label>
             </div>
             <div class="input-field col s2">
-              <input id="occupation" type="text" class="materialize-textarea" >
+              <input id="occupation" type="text" class="materialize-textarea" name="occupation">
               <label for="occupation">Occupation</label>
             </div>
           </div>
 
           <div class="row">
             <div class="input-field col s2">
-              <input id="affiliation" type="text" class="materialize-textarea" >
+              <input id="affiliation" type="text" class="materialize-textarea" name="affiliation">
               <label for="affiliation">Affiliation</label>
             </div>
             <div class="input-field col s2">
-              <input id="alter" type="text" class="materialize-textarea" >
+              <input id="alter" type="text" class="materialize-textarea" name="alter">
               <label for="alter">Alter</label>
             </div>
             <div class="file-field input-field col s4">
               <div class="btn blue darken-4">
                 <span>File</span>
-                <input type="file" multiple>
+                <input type="file" name="image">
               </div>
               <div class="file-path-wrapper">
                 <input class="file-path validate" type="text" placeholder="Image personnage">
@@ -111,7 +111,7 @@
 
           <a href="http://localhost:8080/wiki/list_character.html "><button class="btn waves-effect waves-light blue darken-4" name="back">Back <i class="material-icons right">backspace</i> </button></a>
 
-          <button class="btn waves-effect waves-light blue darken-4 " type="submit" name="action">Submit <i class="material-icons right">send</i> </button>
+          <button class="btn waves-effect waves-light blue darken-4 " type="submit">Submit <i class="material-icons right">send</i> </button>
         </form>
       </div>
     </container>
