@@ -7,7 +7,7 @@ Pauline POIROT
 
 ## Informations
 
-Date de rendu : 19 novembre.
+Date de rendu : Lundi 19 Novembre à 23h59.
 
 ## Thème du site
 
