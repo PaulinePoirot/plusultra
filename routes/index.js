@@ -4,7 +4,7 @@ var router = express.Router();
 const beautify = require("json-beautify");
 const bcrypt = require('bcrypt-nodejs')
 const fs = require('fs')
-const fileupload = require("express-fileupload");
+const path = require('path')
 
 router.get('/', function (req, res, next) {
     console.log("GET /")
@@ -96,36 +96,47 @@ router.get('/users', function (req, res, next) {
 router.post('/perso/add', function (req, res, next) {
     console.log('POST /perso/add')
 
-    /*const tempPath = req.file.path;
-    const targetPath = path.join(__dirname, "./img/image.png");
+    var pseudo = req.body.pseudo.split(' ').join('').toLowerCase()
 
-    if (path.extname(req.file.originalname).toLowerCase() === ".png") {
-        fs.rename(tempPath, targetPath, err => {
-            if (err) return handleError(err, res);
+    if (req.files.vignette) {
+        var vignette = req.files.vignette
+        let type=null
 
-            res.status(200)
-                .contentType("text/plain")
-                .end("File uploaded!");
-        });
-    } else {
-        fs.unlink(tempPath, err => {
-            if (err) return handleError(err, res);
+        if (req.files.vignette.mimetype === 'image/png') type = '.png'
+        if (req.files.vignette.mimetype === 'image/jpg') type = '.jpg'
+        if (req.files.vignette.mimetype === 'image/jpeg') type = '.jpeg'
 
-            res.status(403)
-                .contentType("text/plain")
-                .end("Only .png files are allowed!");
-        });
-    }*/
+        var vignettePath = path.join(__dirname, '/../public/img/vignette/'+pseudo+type)
+        var vignettePathFromRouter = '../img/vignette/'+pseudo+type
 
-    console.log(req.body)
 
-    console.log("files ?")
-    console.log(req.files)
-    console.log(req.file)
+        vignette.mv(vignettePath, function (err) {
+            if (err) console.log(err)
+        })
+    }
+
+    if (req.files.image) {
+        var image = req.files.image
+        let type=null
+
+        if (req.files.image.mimetype === 'image/png') type = '.png'
+        if (req.files.image.mimetype === 'image/jpg') type = '.jpg'
+        if (req.files.image.mimetype === 'image/jpeg') type = '.jpeg'
+
+        var imagePath = path.join(__dirname, '/../public/img/'+pseudo+type)
+        var imagePathFromRouter = '../img/'+pseudo+type
+
+        image.mv(imagePath, function (err) {
+            if (err) console.log(err)
+        })
+    }
 
     var list = JSON.parse(persos)
     var obj = req.body
     var exists = false
+
+    obj.vignette = vignettePathFromRouter
+    obj.image = imagePathFromRouter
 
     list.forEach(function (elem) {
         if (elem.pseudo === obj.pseudo) {

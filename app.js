@@ -4,6 +4,7 @@ var path = require('path')
 var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 var session = require('express-session')
+var fileUpload = require('express-fileupload')
 
 var indexRouter = require('./routes/index')
 
@@ -25,6 +26,8 @@ app.use(session({
     saveUninitialized: false,
     cookie: {maxAge: 60000}
 }))
+
+app.use(fileUpload())
 
 app.use('/', indexRouter)
 
