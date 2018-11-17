@@ -4,6 +4,9 @@ var router = express.Router();
 const beautify = require("json-beautify");
 const bcrypt = require('bcrypt-nodejs')
 const fs = require('fs')
+const multer = require('multer')
+
+const upload = multer({dest: "./img"})
 
 router.get('/', function (req, res, next) {
     console.log("GET /")
@@ -25,6 +28,8 @@ router.get('/connexion', function (req, res, next) {
 
 router.post('/login', function (req, res, next) {
     console.log("POST /login")
+
+    console.log(req.body)
 
     const user = req.body.username
     const pass = req.body.password // password is "admin"
@@ -90,15 +95,42 @@ router.get('/users', function (req, res, next) {
     res.json(JSON.parse(users))
 })
 
-router.post('/perso/add', function (req, res, next) {
+router.post('/perso/add', upload.single("vignette"), function (req, res, next) {
     console.log('POST /perso/add')
+
+    /*const tempPath = req.file.path;
+    const targetPath = path.join(__dirname, "./img/image.png");
+
+    if (path.extname(req.file.originalname).toLowerCase() === ".png") {
+        fs.rename(tempPath, targetPath, err => {
+            if (err) return handleError(err, res);
+
+            res.status(200)
+                .contentType("text/plain")
+                .end("File uploaded!");
+        });
+    } else {
+        fs.unlink(tempPath, err => {
+            if (err) return handleError(err, res);
+
+            res.status(403)
+                .contentType("text/plain")
+                .end("Only .png files are allowed!");
+        });
+    }*/
+
+    console.log(req.body)
+
+    console.log("files ?")
+    console.log(req.files)
+    console.log(req.file)
 
     var list = JSON.parse(persos)
     var obj = req.body
     var exists = false
 
     list.forEach(function (elem) {
-        if (elem.name === obj.name) {
+        if (elem.pseudo === obj.pseudo) {
             exists = true
         }
     })
