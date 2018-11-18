@@ -45,11 +45,9 @@
       @mouseout="hoverCard(-1)"
       class="card"><div>
 
-        <a :href="perso.urlID">
-          <img class="card-image" :class="{'selected': isSelected(index)}"
-          :src="perso.vignette" >
-        </a>
-
+        <img v-on:click="redirection(perso.pseudo)" class="card-image" :class="{'selected': isSelected(index)}"
+        :src="perso.vignette" >
+        
         <div class="card-footer">
           <h3 class="card-title" :class="{'selected': isSelected(index)}">{{perso.pseudo}}</h3>
           <p class="card-text" :class="{'selected': isSelected(index)}">

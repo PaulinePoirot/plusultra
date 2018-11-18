@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="fr">
-
 <head>
     <link rel="shortcut icon"
           href="https://vignette.wikia.nocookie.net/bokunoheroacademia/images/6/64/Favicon.ico/revision/latest?cb=20141231001855&amp;path-prefix=fr">
@@ -17,6 +16,7 @@
     <container>
         <div class="row">
           <div v-for="perso in persos">
+            <div v-if="(perso.pseudo)==(pseudo_perso)">
             <div class="col s10">
                 <ul class="collection">
                     <li class="collection-item">
@@ -70,10 +70,16 @@
             </div>
           </div>
         </div>
+        </div>
     </container>
     <footer-bar></footer-bar>
+
+
+
 </div>
 </body>
+
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
