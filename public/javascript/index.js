@@ -151,6 +151,9 @@ let vue = new Vue({
     update_perso(pseudo){
       console.log('michel',axios.post('http://localhost:8080/persos/' + pseudo))
     },
+    redirection(pseudo){
+      window.location.href ="/wiki/detail_perso.html?pseudo_perso="+pseudo
+    },
 
     ready() {
       this.loadData()
