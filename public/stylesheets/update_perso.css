@@ -25,7 +25,7 @@ body {
   height: 150px;
 }
 
-.save{
+.button_update{
   float: right;
-  top: -50px;
+  margin-top: -50px;
 }

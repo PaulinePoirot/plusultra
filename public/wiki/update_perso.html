@@ -14,61 +14,67 @@
   <div id="app">
     <navbar></navbar>
     <div class="row">
-      <div v-for="perso in persos">
-        <div v-if="(perso.pseudo)==(pseudo_perso)">
-          <div class="col s10">
-            <ul class="collection">
-              <li class="collection-item">
-                <div>
-                  <h3>{{perso.name}}</h3>
-                  <button v-on:click="update_perso(perso.pseudo)" class="save secondary-content waves-effect waves-light btn-small blue darken-4"><i class="material-icons right">save</i>Sauvegarder</button>
-                  </div
-                </li>
-                <li class="collection-item"><textarea class="data" name="info">{{perso.info}}</textarea></li>
-              </ul>
-
+      <form class="col s12">
+        <div v-for="perso in persos">
+          <div v-if="(perso.pseudo)==(pseudo_perso)">
+            <div class="col s10">
               <ul class="collection">
-                <li class="collection-item"><h5>Apparence</h5>
-                </li>
-                <li class="collection-item"><textarea class="data" name="apparence">{{perso.apparence}}</textarea></li>
-              </ul>
+                <li class="collection-item">
+                  <div>
+                    <h3>{{perso.name}}</h3>
 
-              <ul class="collection">
-                <li class="collection-item"><h5>Personnalité</h5>
-                </li>
-                <li class="collection-item"><textarea class="data" name="personnalite">{{perso.personnalite}}</textarea></li>
-              </ul>
+                    <div class="button_update">
+                      <a href="/liste"><button type="button" class="btn waves-effect waves-light blue darken-4">Back<i class="material-icons right">backspace</i> </button></a>
+                      <button class="btn waves-effect waves-light blue darken-4" type="submit">Submit<i class="material-icons right">send</i> </button>
+                    </div>
+                    
+                  </li>
+                  <li class="collection-item"><textarea class="data" name="info">{{perso.info}}</textarea></li>
+                </ul>
 
-              <ul class="collection">
-                <li class="collection-item"><h5>Biographie </h5>
-                </li>
-                <li class="collection-item"><textarea class="data" name="biographie">{{perso.biographie}}</textarea></li>
-              </ul>
+                <ul class="collection">
+                  <li class="collection-item"><h5>Apparence</h5>
+                  </li>
+                  <li class="collection-item"><textarea class="data" name="apparence">{{perso.apparence}}</textarea></li>
+                </ul>
 
-              <ul class="collection">
-                <li class="collection-item"><h5>Aptitudes et Compétences</h5>
-                </li>
-                <li class="collection-item"><textarea class="data" name="aptitudes">{{perso.aptitudes}}</textarea></li>
-              </ul>
-            </div>
+                <ul class="collection">
+                  <li class="collection-item"><h5>Personnalité</h5>
+                  </li>
+                  <li class="collection-item"><textarea class="data" name="personnalite">{{perso.personnalite}}</textarea></li>
+                </ul>
 
-            <div class="col s2">
-              <ul class="collection">
-                <li class="collection-item"><h5 class="center-align">{{perso.pseudo}}</h5>
-                </li>
-                <img class="center-img" :src="perso.image">
-                <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="anniversaire">{{perso.anniversaire}}</textarea></span>Anniversaire</li>
-                <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="age">{{perso.age}}</textarea></span>Âge</li>
-                <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="genre">{{perso.genre}}</textarea></span>Genre</li>
-                <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="taille">{{perso.taille}}</textarea></span>Taille</li>
-                <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="occupation">{{perso.occupation}}</textarea></span>Occupation</li>
-                <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="affiliation">{{perso.affiliation}}</textarea></span>Affiliation</li>
-                <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="alter">{{perso.alter}}</textarea></span>Alter</li>
+                <ul class="collection">
+                  <li class="collection-item"><h5>Biographie </h5>
+                  </li>
+                  <li class="collection-item"><textarea class="data" name="biographie">{{perso.biographie}}</textarea></li>
+                </ul>
 
-              </ul>
+                <ul class="collection">
+                  <li class="collection-item"><h5>Aptitudes et Compétences</h5>
+                  </li>
+                  <li class="collection-item"><textarea class="data" name="aptitudes">{{perso.aptitudes}}</textarea></li>
+                </ul>
+              </div>
+
+              <div class="col s2">
+                <ul class="collection">
+                  <li class="collection-item"><h5 class="center-align">{{perso.pseudo}}</h5>
+                  </li>
+                  <img class="center-img" :src="perso.image">
+                  <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="anniversaire">{{perso.anniversaire}}</textarea></span>Anniversaire</li>
+                  <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="age">{{perso.age}}</textarea></span>Âge</li>
+                  <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="genre">{{perso.genre}}</textarea></span>Genre</li>
+                  <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="taille">{{perso.taille}}</textarea></span>Taille</li>
+                  <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="occupation">{{perso.occupation}}</textarea></span>Occupation</li>
+                  <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="affiliation">{{perso.affiliation}}</textarea></span>Affiliation</li>
+                  <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="alter">{{perso.alter}}</textarea></span>Alter</li>
+
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
       <footer-bar></footer-bar>
 
