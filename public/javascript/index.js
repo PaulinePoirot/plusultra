@@ -5,46 +5,41 @@ Vue.component("navbar", {
 });
 
 Vue.component("footer-bar", {
-    template: footer,
-    data: () => ({
-        el: '#app',
-        random: 0,
-        quote: "",
-        quotes: ['"All men are not created equal." ━ Izuku Midoriya',
-            '"Maybe I failed this time, but I’m not giving up." ━ Shinsou Hitoshi',
-            '"Dreams can become reality!" ━ Izuku Midoriya',
-            '"The most inflated egos are often the most fragile." ━ All Might',
-            '"Stop Talking, I will win. That’s… what heroes do." ━ Bakugou Katsuki',
-            '"Isn’t it a hero’s job to save people?" ━ Shoto Todoroki',
-            '"Heroes and villains both thrive on violence, but we’re still categorized. “You’re good” “You’re evil”." ━ Shigaraki Tomura',
-            '"The most inflated egos are often the most fragile." ━ All Might',
-            '"Whether you win or lose, looking back and learning from your experience is a part of life." ━ All Might',
 
-        ],
-    }),
+    template:
+    footer,
+    data:
+        () => ({
+            el: '#app',
+            random: 0,
+            quote: "",
+            quotes: [],
+        }),
 
-    methods: {
-
-        loadQuotes() {
-            axios.get('http://localhost:8080/quotes').then((response) => {
-                this.quotes = response.data
-            });
-        },
-        ready() {
-            this.random = Math.floor(Math.random() * this.quotes.length);
-            this.quote = this.quotes[this.random];
-
-            this.loadQuotes()
-            setInterval(function () {
+    methods:
+        {
+            loadQuotes() {
+                axios.get('http://localhost:8080/quotes').then((response) => {
+                    this.quotes = response.data
+                    this.random = Math.floor(Math.random() * this.quotes.length);
+                    this.quote = this.quotes[this.random];
+                });
+            }
+            ,
+            ready() {
                 this.loadQuotes()
-            }.bind(this), 30000)
+                setInterval(function () {
+                    this.loadQuotes()
+                }.bind(this), 30000)
+            }
         }
-    },
+    ,
     created() {
         this.ready();
     }
 
-});
+})
+;
 
 Vue.component('carousel-component', {
     render: function (createElement) {

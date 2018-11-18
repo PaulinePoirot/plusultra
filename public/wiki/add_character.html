@@ -10,116 +10,116 @@
 </head>
 
 <body>
-<div id="app">
+  <div id="app">
     <navbar></navbar>
 
-      <div class="add"><div class="title_add">Création d'un nouveau personnage</div></div>
+    <div class="add"><div class="title_add">Création d'un nouveau personnage</div></div>
 
-      <div class="row addnew">
-        <form class="col s10 offset-s2" method="post" enctype="multipart/form-data" action="/perso/add">
-          <div class="row">
-            <div class="input-field col s4">
-              <input id="name" type="text" class="materialize-textarea" name="name" required>
-              <label for="name">Prénom et Nom</label>
+    <div class="row addnew">
+      <form class="col s10 offset-s2" method="post" enctype="multipart/form-data" action="/perso/add">
+        <div class="row">
+          <div class="input-field col s4">
+            <input id="name" type="text" class="materialize-textarea" name="name" required>
+            <label for="name">Prénom et Nom</label>
+          </div>
+          <div class="input-field col s2">
+            <input id="pseudo" type="text" class="materialize-textarea" name="pseudo" required>
+            <label for="pseudo">Pseudo</label>
+          </div>
+          <div class="file-field input-field col s4">
+            <div class="btn blue darken-4">
+              <span>File</span>
+              <input type="file" name="vignette">
             </div>
-            <div class="input-field col s2">
-              <input id="pseudo" type="text" class="materialize-textarea" name="pseudo" required>
-              <label for="pseudo">Pseudo</label>
-            </div>
-            <div class="file-field input-field col s4">
-              <div class="btn blue darken-4">
-                <span>File</span>
-                <input type="file" name="vignette">
-              </div>
-              <div class="file-path-wrapper">
-                <input id="vignette" class="file-path validate" type="text" placeholder="Image vignette" required>
-              </div>
+            <div class="file-path-wrapper">
+              <input id="vignette" class="file-path validate" type="text" placeholder="Image vignette" required>
             </div>
           </div>
+        </div>
 
-          <div class="row">
-            <div class="input-field col s10">
-              <textarea id="info" class="materialize-textarea" name="info" required></textarea>
-              <label for="info">Résumé</label>
+        <div class="row">
+          <div class="input-field col s10">
+            <textarea id="info" class="materialize-textarea" name="info" required></textarea>
+            <label for="info">Résumé</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s10">
+            <textarea id="apparence" class="materialize-textarea" name="apparence"></textarea>
+            <label for="apparence">Apparence</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s10">
+            <textarea id="personalite" class="materialize-textarea" name="personnalite" ></textarea>
+            <label for="personalite">Personnalité</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s10">
+            <textarea id="biographie" class="materialize-textarea" name="biographie"></textarea>
+            <label for="biographie">Biographie</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s10">
+            <textarea id="comptence" class="materialize-textarea" name="aptitudes" required></textarea>
+            <label for="comptence">Aptitudes et Compétences</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s2">
+            <input id="birth" type="text" class="materialize-textarea" name="anniversaire" required>
+            <label for="birth">Date d'anniversaire</label>
+          </div>
+          <div class="input-field col s2">
+            <input id="year" type="text" class="materialize-textarea" name="age" required>
+            <label for="year">Âge</label>
+          </div>
+          <div class="input-field col s2">
+            <input id="sexe" type="text" class="materialize-textarea" name="genre" required>
+            <label for="sexe">Genre</label>
+          </div>
+          <div class="input-field col s2">
+            <input id="height" type="text" class="materialize-textarea" name="taille" required>
+            <label for="height">Taille</label>
+          </div>
+          <div class="input-field col s2">
+            <input id="occupation" type="text" class="materialize-textarea" name="occupation" required>
+            <label for="occupation">Occupation</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s2">
+            <input id="affiliation" type="text" class="materialize-textarea" name="affiliation" required>
+            <label for="affiliation">Affiliation</label>
+          </div>
+          <div class="input-field col s2">
+            <input id="alter" type="text" class="materialize-textarea" name="alter" required>
+            <label for="alter">Alter</label>
+          </div>
+          <div class="file-field input-field col s4">
+            <div class="btn blue darken-4">
+              <span>File</span>
+              <input type="file" name="image">
+            </div>
+            <div class="file-path-wrapper">
+              <input id="image" class="file-path validate" type="text" placeholder="Image personnage" required>
             </div>
           </div>
+        </div>
 
-          <div class="row">
-            <div class="input-field col s10">
-              <textarea id="apparence" class="materialize-textarea" name="apparence"></textarea>
-              <label for="apparence">Apparence</label>
-            </div>
-          </div>
+        <a href="/liste"><button type="button" class="btn waves-effect waves-light blue darken-4">Back<i class="material-icons right">backspace</i> </button></a>
 
-          <div class="row">
-            <div class="input-field col s10">
-              <textarea id="personalite" class="materialize-textarea" name="personnalite" ></textarea>
-              <label for="personalite">Personnalité</label>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="input-field col s10">
-              <textarea id="biographie" class="materialize-textarea" name="biographie"></textarea>
-              <label for="biographie">Biographie</label>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="input-field col s10">
-              <textarea id="comptence" class="materialize-textarea" name="aptitudes" required></textarea>
-              <label for="comptence">Aptitudes et Compétences</label>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="input-field col s2">
-              <input id="birth" type="text" class="materialize-textarea" name="anniversaire" required>
-              <label for="birth">Date d'anniversaire</label>
-            </div>
-            <div class="input-field col s2">
-              <input id="year" type="text" class="materialize-textarea" name="age" required>
-              <label for="year">Âge</label>
-            </div>
-            <div class="input-field col s2">
-              <input id="sexe" type="text" class="materialize-textarea" name="genre" required>
-              <label for="sexe">Genre</label>
-            </div>
-            <div class="input-field col s2">
-              <input id="height" type="text" class="materialize-textarea" name="taille" required>
-              <label for="height">Taille</label>
-            </div>
-            <div class="input-field col s2">
-              <input id="occupation" type="text" class="materialize-textarea" name="occupation" required>
-              <label for="occupation">Occupation</label>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="input-field col s2">
-              <input id="affiliation" type="text" class="materialize-textarea" name="affiliation" required>
-              <label for="affiliation">Affiliation</label>
-            </div>
-            <div class="input-field col s2">
-              <input id="alter" type="text" class="materialize-textarea" name="alter" required>
-              <label for="alter">Alter</label>
-            </div>
-            <div class="file-field input-field col s4">
-              <div class="btn blue darken-4">
-                <span>File</span>
-                <input type="file" name="image">
-              </div>
-              <div class="file-path-wrapper">
-                <input id="image" class="file-path validate" type="text" placeholder="Image personnage" required>
-              </div>
-            </div>
-          </div>
-
-          <a href="/liste"><button type="button" class="btn waves-effect waves-light blue darken-4">Back<i class="material-icons right">backspace</i> </button></a>
-
-          <button class="btn waves-effect waves-light blue darken-4" type="submit">Submit<i class="material-icons right">send</i> </button>
-        </form>
-      </div>
+        <button class="btn waves-effect waves-light blue darken-4" type="submit">Submit<i class="material-icons right">send</i> </button>
+      </form>
+    </div>
 
     <footer-bar></footer-bar>
 
@@ -135,7 +135,6 @@
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="../theme/components/footer.js"></script>
 <script src="../theme/components/navbar.js"></script>
-<script src="../theme/components/characters.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 <script src="../javascript/index.js"></script>
