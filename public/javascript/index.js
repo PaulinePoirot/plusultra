@@ -127,6 +127,7 @@ let vue = new Vue({
     password: "",
     random: 0,
     quote: "",
+    pseudo_perso :"",
     selectedPerso: -1
   },
   methods: {
@@ -146,9 +147,6 @@ let vue = new Vue({
       } ).then((response) => {
         console.log("222222222", this.persos = response.data)
       });
-    },
-    add_perso(){
-      console.log('michel',axios.add('http://localhost:8080/persos/'))
     },
     update_perso(pseudo){
       console.log('michel',axios.post('http://localhost:8080/persos/' + pseudo))
@@ -189,5 +187,10 @@ let vue = new Vue({
   },
   mounted: function () {
     this.ready();
-  }
+  },
+  created: function () {
+    var urlParams = new URLSearchParams(window.location.search);
+    var pseudo_perso = urlParams.get('pseudo_perso');
+    this.pseudo_perso = pseudo_perso;
+}
 });

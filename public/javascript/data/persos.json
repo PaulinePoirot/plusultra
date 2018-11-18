@@ -16,7 +16,7 @@
     "biographie": "All Might apparaît sous sa forme Héros en sauvant Izuku Midoriya d'un vilain tentant de l'absorber. Le n°1 des Héros voyant que le jeune homme va bien, s'apprête à s'en à aller. Izuku s'accroche à sa jambe, All Might est obligé d'atterrir sur le toit d'un immeuble. Là, Izuku va notamment apprendre qu'il y a cinq ans il a été victime d'une blessure et suite à une opération, il ne peut utiliser son Alter que 3h par jour. Ce labs de temps écoulé, il reprend sa forme normale. Après, Izuku lui demande s'il a ses chances de devenir héros sans Alter. All Might lui répond qu'il ne pas devenir un héros sans Alter mais il peut tout de même devenir policier ou détective. All Might changera d'avis après un incident en ville. Ayant dépassé les 3h d'utilisation de son Alter, il n'était pas apte à sauver Katsuki Bakugo du même vilain qui attaqué Izuku à la Galerie marchande de Tatouin. Celui qui était rabaissé de tous et qui n'avait pas d'Alter, Izuku s'est mit à courir pour sauver Katsuki en risquant sa vie alors que les Héros professionnels aux alentours ne pouvaient rien faire, All Might a pris en compte cela de cet acte de bravoure, repris sa forme Héros et sauva Katsuki avec le Detroit Smash. All Might décida de faire d’Izuku son successeur en lui offrant le One For All.",
     "aptitudes": "Le One For All (ワ ン · フ ォ ー · オ ー ル, Wan Fô Oru) est l'Alter de Toshinori. Il lui accorde une force et une vitesse surhumaine, une agilité et des réflexes grandement améliorés, une grande endurance et la capacité de sauter très haut. Le One For All est un alter unique qui se transmet d'une personne à une autre. Celui ci est alors le propriétaire d'une force hors du commun. Cependant le corps de l'utilisateur doit y être préparé sans quoi celui ci s'en trouve endommagé.",
     "vignette": "../theme/img/vignette/yagi.jpg",
-    "urlID": "../wiki/detail_perso.html"
+    "urlID": "../wiki/detail_perso.html?pseudo_perso=All Might"
   },
   {
     "pseudo": "Lemillion",
@@ -35,7 +35,7 @@
     "aptitudes": "Grâce à cet Alter Mirio est capable de passer son corps à travers n'importe quoi de solide ou liquide. Son Alter est très utile pour passer derrière les mur pour sauver des personnes en danger ou en combat. Quand il \"tombe\" sous-terre, comme deux masses ne peuvent pas cohabiter au même endroit, il est projeté en l'air, ce qui peut s'apparenter à de la téléportation. De plus, quand il active son pouvoir, ses poumons ne peuvent plus fonctionner correctement et il ne peut plus respirer. Il s'est donc énormément entraîné avec Sir Nighteye pour rendre son pouvoir extrêmement puissant",
     "image": "../theme/img/mirio.png",
     "vignette": "../theme/img/vignette/mirio.jpg",
-    "urlID": "../wiki/detail_perso.html"
+    "urlID": "../wiki/detail_perso.html?pseudo_perso=Lemillion"
   },
   {
     "pseudo": "Sun Eater",
@@ -54,7 +54,7 @@
     "aptitudes": "Cet alter permet a Tamaki de reproduire certaines caractéristiques physique des choses qu'il mange. Il peut faire de multiples transformation à différents endroits sur son corps simultanément. Cependant, il ne peut manifester que les caractéristiques des aliments qui sont encore dans son système digestif. Il a également montré qu'il peut utiliser son alter sur des objets qui ne sont pas nécessairement de la nourriture (par exemple des cristaux). Il est donc suggéré que sont alter pourrait être utiliser avec n'importe quoi pourvu qu'il puisse le manger.",
     "image": "../theme/img/tamaki.png",
     "vignette": "../theme/img/vignette/tamaki.jpg",
-    "urlID": "../wiki/detail_perso.html"
+    "urlID": "../wiki/detail_perso.html?pseudo_perso=Sun Eater"
   },
   {
     "pseudo": "Crazy Lady",
@@ -73,6 +73,6 @@
     "aptitudes": "En ingérant le sang de ses victimes, Himiko est en mesure de prendre leurs apparences. En fonction de la quantité de sang qu’elle ingère, sa transformation peut durer une fraction de seconde comme une journée. Si Himiko ingère le sang de plusieurs personnes, elle sera alors en mesure de se métamorphoser à loisir en ses personnes. Lorsqu'elle change d'apparence, elle revêt momentanément une apparence assez aqueuse. Son alter lui permet aussi de créer les vêtements de ses victimes, mais il faudra pour cela qu’elle soit nue.",
     "image": "../theme/img/toga.png",
     "vignette": "../theme/img/vignette/toga.jpg",
-    "urlID": "../wiki/detail_perso.html"
+    "urlID": "../wiki/detail_perso.html?pseudo_perso=Crazy Lady"
   }
 ]
