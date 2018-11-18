@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <link rel="shortcut icon"
+  href="https://vignette.wikia.nocookie.net/bokunoheroacademia/images/6/64/Favicon.ico/revision/latest?cb=20141231001855&amp;path-prefix=fr">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/update_perso.css" media="all"/>
+
+  <meta charset="utf-8">
+  <title>PLUS ULTRA</title>
+</head>
+
+<body>
+  <div id="app">
+    <navbar></navbar>
+    <div class="row">
+      <div v-for="perso in persos">
+        <div v-if="(perso.pseudo)==(pseudo_perso)">
+          <div class="col s10">
+            <ul class="collection">
+              <li class="collection-item">
+                <div>
+                  <h3>{{perso.name}}</h3>
+                  <button v-on:click="update_perso(perso.pseudo)" class="save secondary-content waves-effect waves-light btn-small blue darken-4"><i class="material-icons right">save</i>Sauvegarder</button>
+                  </div
+                </li>
+                <li class="collection-item"><textarea class="data" name="info">{{perso.info}}</textarea></li>
+              </ul>
+
+              <ul class="collection">
+                <li class="collection-item"><h5>Apparence</h5>
+                </li>
+                <li class="collection-item"><textarea class="data" name="apparence">{{perso.apparence}}</textarea></li>
+              </ul>
+
+              <ul class="collection">
+                <li class="collection-item"><h5>Personnalité</h5>
+                </li>
+                <li class="collection-item"><textarea class="data" name="personnalite">{{perso.personnalite}}</textarea></li>
+              </ul>
+
+              <ul class="collection">
+                <li class="collection-item"><h5>Biographie </h5>
+                </li>
+                <li class="collection-item"><textarea class="data" name="biographie">{{perso.biographie}}</textarea></li>
+              </ul>
+
+              <ul class="collection">
+                <li class="collection-item"><h5>Aptitudes et Compétences</h5>
+                </li>
+                <li class="collection-item"><textarea class="data" name="aptitudes">{{perso.aptitudes}}</textarea></li>
+              </ul>
+            </div>
+
+            <div class="col s2">
+              <ul class="collection">
+                <li class="collection-item"><h5 class="center-align">{{perso.pseudo}}</h5>
+                </li>
+                <img class="center-img" :src="perso.image">
+                <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="anniversaire">{{perso.anniversaire}}</textarea></span>Anniversaire</li>
+                <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="age">{{perso.age}}</textarea></span>Âge</li>
+                <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="genre">{{perso.genre}}</textarea></span>Genre</li>
+                <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="taille">{{perso.taille}}</textarea></span>Taille</li>
+                <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="occupation">{{perso.occupation}}</textarea></span>Occupation</li>
+                <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="affiliation">{{perso.affiliation}}</textarea></span>Affiliation</li>
+                <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="alter">{{perso.alter}}</textarea></span>Alter</li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer-bar></footer-bar>
+
+    </div>
+  </body>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="../theme/components/footer.js"></script>
+  <script src="../theme/components/navbar.js"></script>
+  <script src="../theme/components/characters.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+
+  <script src="../javascript/index.js"></script>
+  </html>

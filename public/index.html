@@ -47,7 +47,7 @@
 
         <img v-on:click="redirection(perso.pseudo)" class="card-image" :class="{'selected': isSelected(index)}"
         :src="perso.vignette" >
-        
+
         <div class="card-footer">
           <h3 class="card-title" :class="{'selected': isSelected(index)}">{{perso.pseudo}}</h3>
           <p class="card-text" :class="{'selected': isSelected(index)}">
@@ -70,7 +70,6 @@
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="theme/components/footer.js"></script>
 <script src="theme/components/navbar.js"></script>
-<script src="theme/components/characters.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 <script src="javascript/index.js"></script>

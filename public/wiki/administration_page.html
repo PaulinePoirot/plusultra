@@ -26,6 +26,13 @@
         <div v-for="quote in quotes">
           <li class="collection-item"><div>{{quote}}<button class="secondary-content waves-effect waves-light btn-small blue darken-4"><i class="material-icons right">delete</i>supprimer</button></div></li>
         </div>
+
+        <li class="collection-item">
+          <div class="input-field col s4">
+            <input id="quote" type="text" class="materialize-textarea" name="quote">
+            <label for="quote">Ajouter une citation</label>
+          </div><div class="input-field col s1">
+        <button class="secondary-content waves-effect waves-light btn-small blue darken-4"><i class="material-icons right">add</i>ajouter</button></div></li>
       </ul>
     </div>
 
