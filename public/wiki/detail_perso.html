@@ -13,7 +13,6 @@
 <body>
 <div id="app">
     <navbar></navbar>
-    <container>
         <div class="row">
           <div v-for="perso in persos">
             <div v-if="(perso.pseudo)==(pseudo_perso)">
@@ -22,8 +21,8 @@
                     <li class="collection-item">
                     <div>
                       <h3>{{perso.name}}</h3>
-                      <button v-on:click="update_perso(perso.pseudo)" class=" update secondary-content waves-effect waves-light btn-small blue darken-4"><i class="material-icons right">update</i>Modifier</button>
-                      </div
+                      <button v-on:click="redirection_update(perso.pseudo)" class=" update secondary-content waves-effect waves-light btn-small blue darken-4"><i class="material-icons right">update</i>Modifier</button>
+                    </div>
                     </li>
                     <li class="collection-item">{{perso.info}}</li>
                 </ul>
@@ -71,7 +70,6 @@
           </div>
         </div>
         </div>
-    </container>
     <footer-bar></footer-bar>
 
 

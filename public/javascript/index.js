@@ -148,8 +148,11 @@ let vue = new Vue({
         console.log("222222222", this.persos = response.data)
       });
     },
+    redirection_update(pseudo){
+      window.location.href ="/wiki/update_perso.html?pseudo_perso="+pseudo
+    },
     update_perso(pseudo){
-      console.log('michel',axios.post('http://localhost:8080/persos/' + pseudo))
+      window.location.href ="/wiki/update_perso.html?pseudo_perso="+pseudo
     },
     redirection(pseudo){
       window.location.href ="/wiki/detail_perso.html?pseudo_perso="+pseudo
