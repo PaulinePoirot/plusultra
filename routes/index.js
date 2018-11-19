@@ -65,6 +65,7 @@ router.get('/logout', function (req, res, next) {
     req.session.destroy(function (err) {
         if (err) throw err
     })
+    res.redirect('/')
 })
 
 router.get('/api/quotes', function (req, res, next) {
