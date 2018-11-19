@@ -1,4 +1,5 @@
 var express = require('express');
+
 var router = express.Router();
 
 const beautify = require("json-beautify");
@@ -6,6 +7,8 @@ const bcrypt = require('bcrypt-nodejs')
 const fs = require('fs')
 const path = require('path')
 
+
+// ENDPOINT PAGES WEB
 router.get('/', function (req, res, next) {
     console.log("GET /")
 
@@ -20,8 +23,12 @@ router.get('/liste', function (req, res, next) {
 })
 
 router.get('/administration', function (req, res, next) {
-    console.log("GET /wiki/administration")
-    res.sendFile('administration_page.html', {root: __dirname + '/../public/wiki'})
+    console.log("GET /administration")
+    if (req.session.admin) {
+        res.sendFile('administration_page.html', {root: __dirname + '/../public/wiki'})
+    } else {
+        res.redirect('/')
+    }
 })
 
 router.get('/connexion', function (req, res, next) {
@@ -29,45 +36,7 @@ router.get('/connexion', function (req, res, next) {
     res.sendFile('connexion_page.html', {root: __dirname + '/../public/wiki'})
 })
 
-router.post('/login', function (req, res, next) {
-    console.log("POST /login")
-
-    console.log(req.body)
-
-    const user = req.body.username
-    const pass = req.body.password // password is "admin"
-
-    const user_list = JSON.parse(users)
-
-    if (!req.session.admin) {
-        user_list.forEach(function (elem) {
-                if (elem.username === user) {
-                    if (bcrypt.compareSync(pass, elem.password)) {
-                        req.session.admin = true
-                    }
-                }
-            }
-        )
-
-        if (req.session.admin) {
-            res.redirect('/')
-        } else {
-            res.redirect('/connexion')
-        }
-    } else {
-        res.send("Déjà connecté")
-    }
-})
-
-router.get('/logout', function (req, res, next) {
-    console.log("GET /logout")
-
-    req.session.destroy(function (err) {
-        if (err) throw err
-    })
-    res.redirect('/')
-})
-
+// ENDPOINT API
 router.get('/api/quotes', function (req, res, next) {
     console.log("GET /quotes")
     res.json(JSON.parse(quotes))
@@ -96,11 +65,6 @@ router.get('/perso/:id', function (req, res, next) {
 
 
     res.sendFile('detail_perso.html?pseudo_perso=' + req.params.id.split(' ').join('').toLowerCase(), {root: __dirname + '/../public/wiki'})
-})
-
-router.get('/perso/update/:id', function (req, res, next) {
-    console.log("GET /perso/update/" + req.params.id)
-    res.sendFile('administration_page.html', {root: __dirname + '/../public/wiki'})
 })
 
 router.post('/api/perso/add', function (req, res, next) {
@@ -158,7 +122,8 @@ router.post('/api/perso/add', function (req, res, next) {
 
     if (exists) {
         console.log("le perso existe déjà")
-        res.send("KO")
+
+        res.redirect('/liste')
     } else {
         console.log("ajout du personnage")
         list.push(obj)
@@ -182,35 +147,40 @@ router.post('/api/perso/add', function (req, res, next) {
 router.post('/api/perso/delete', function (req, res, next) {
     console.log('POST /perso/delete')
 
-    var list = JSON.parse(persos)
-    var obj = req.body
-    var exists = false
+    if (req.session.admin) {
+        var list = JSON.parse(persos)
+        var obj = req.body
+        var exists = false
 
-    list.forEach(function (elem) {
-        if (elem.pseudo.split(' ').join('').toLowerCase() === obj.pseudo.split(' ').join('').toLowerCase()) {
-            exists = true
-        }
-    })
+        list.forEach(function (elem) {
+            if (elem.pseudo.split(' ').join('').toLowerCase() === obj.pseudo.split(' ').join('').toLowerCase()) {
+                exists = true
+            }
+        })
 
-    if (!exists) {
-        console.log("le perso n'existe pas")
-        res.send("personnage n'existe pas, ne peut être supprimé")
-    } else {
-        console.log("suppression du personnage")
+        if (!exists) {
+            console.log("le perso n'existe pas")
+            res.send("personnage n'existe pas, ne peut être supprimé")
+        } else {
+            console.log("suppression du personnage")
 
-        const new_list = list.filter(perso => perso.pseudo.split(' ').join('').toLowerCase() !== obj.pseudo.split(' ').join('').toLowerCase())
+            const new_list = list.filter(perso => perso.pseudo.split(' ').join('').toLowerCase() !== obj.pseudo.split(' ').join('').toLowerCase())
 
-        persos = beautify(new_list, null, 2, 50)
+            persos = beautify(new_list, null, 2, 50)
 
-        fs.open('public/javascript/data/persos.json', 'w', function (err, fd) {
-            if (err) throw err;
-            fs.write(fd, persos, 'utf8', function (err, written, string) {
-                if (err) throw err
-            })
-            fs.close(fd, (err) => {
+            fs.open('public/javascript/data/persos.json', 'w', function (err, fd) {
                 if (err) throw err;
+                fs.write(fd, persos, 'utf8', function (err, written, string) {
+                    if (err) throw err
+                })
+                fs.close(fd, (err) => {
+                    if (err) throw err;
+                });
             });
-        });
+        }
+        res.redirect('/administration')
+    } else {
+        res.redirect('/')
     }
 })
 
@@ -218,17 +188,6 @@ router.post('/api/perso/update', function (req, res) {
     console.log('POST /perso/update')
 
     console.log(req.session.admin)
-
-    /*
-    list.forEach(function (elem) {
-        if (elem.pseudo.split(' ').join('').toLowerCase() === obj.pseudo.split(' ').join('').toLowerCase()) {
-            myPerso = elem
-        }
-    })
-
-    for (var value in myPerso) {
-        myPerso[value] = obj[value]
-    }*/
 
     var list = JSON.parse(persos)
     var obj = req.body
@@ -252,8 +211,6 @@ router.post('/api/perso/update', function (req, res) {
             if (err) throw err;
         });
     });
-
-    res.redirect('/') // persos/' + pseudo.split(' ').join('').toLowerCase())
 })
 
 router.post('/api/quotes/add', function (req, res) {
@@ -303,10 +260,53 @@ router.post('/api/quotes/delete', function (req, res) {
 
 })
 
-router.get('/connected', function(req, res, next) {
+
+// GESTION DE LA SESSION
+router.get('/connected', function (req, res, next) {
     console.log('GET /connected')
 
     res.json(req.session)
 })
 
+router.post('/login', function (req, res, next) {
+    console.log("POST /login")
+
+    console.log(req.body)
+
+    const user = req.body.username
+    const pass = req.body.password // password is "admin"
+
+    const user_list = JSON.parse(users)
+
+    if (!req.session.admin) {
+        user_list.forEach(function (elem) {
+                if (elem.username === user) {
+                    if (bcrypt.compareSync(pass, elem.password)) {
+                        req.session.admin = true
+                    }
+                }
+            }
+        )
+
+        if (req.session.admin) {
+            res.redirect('/')
+        } else {
+            res.redirect('/connexion')
+        }
+    } else {
+        res.send("Déjà connecté")
+    }
+})
+
+router.get('/logout', function (req, res, next) {
+    console.log("GET /logout")
+
+    req.session.destroy(function (err) {
+        if (err) throw err
+    })
+    res.redirect('/')
+})
+
+
+// EXPORT
 module.exports = router;

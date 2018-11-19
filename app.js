@@ -24,7 +24,7 @@ app.use(session({
     secret: 'whocaresaboutastrongpassword?',
     resave: false,
     saveUninitialized: false,
-    cookie: {maxAge: 60000}
+    cookie: {maxAge: 360000}
 }))
 
 app.use(fileUpload())

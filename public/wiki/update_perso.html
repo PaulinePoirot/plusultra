@@ -24,8 +24,8 @@
                     <h3>{{perso.name}}</h3>
                       <textarea style="display:none" name="name">{{perso.name}}</textarea>
                     <div class="button_update">
-                      <a href="/liste"><button type="button" class="btn waves-effect waves-light blue darken-4">Back<i class="material-icons right">backspace</i> </button></a>
-                      <button class="btn waves-effect waves-light blue darken-4" type="submit">Submit<i class="material-icons right">send</i> </button>
+                      <a v-on:click="redirection(perso.pseudo)"><button type="button" class="btn waves-effect waves-light blue darken-4">Back<i class="material-icons right">backspace</i> </button></a>
+                      <button v-on:click="redirection(perso.pseudo)" class="btn waves-effect waves-light blue darken-4" type="submit">Submit<i class="material-icons right">send</i> </button>
                     </div>
                   </div>
                   </li>
