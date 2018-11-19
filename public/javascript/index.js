@@ -185,13 +185,10 @@ let vue = new Vue({
       axios.post('/api/perso/delete', {
         "pseudo": pseudo.split(' ').join('').toLowerCase()
       }).then((response) => {
-        console.log("222222222", this.persos = response.data)
+        console.log(response)
       });
     },
     redirection_update(pseudo) {
-      window.location.href = "/wiki/update_perso.html?pseudo_perso=" + pseudo.split(' ').join('').toLowerCase() // '/persos/update/'+ pseudo.split(' ').join('').toLowerCase()
-    },
-    update_perso(pseudo) {
       window.location.href = "/wiki/update_perso.html?pseudo_perso=" + pseudo.split(' ').join('').toLowerCase() // '/persos/update/'+ pseudo.split(' ').join('').toLowerCase()
     },
     redirection(pseudo) {
