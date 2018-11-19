@@ -4,7 +4,7 @@
     <link rel="shortcut icon"
           href="https://vignette.wikia.nocookie.net/bokunoheroacademia/images/6/64/Favicon.ico/revision/latest?cb=20141231001855&amp;path-prefix=fr">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <link rel="stylesheet" type="text/css" href="../stylesheets/character.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/detail_perso.css" media="all"/>
 
     <meta charset="utf-8">
     <title>PLUS ULTRA</title>
@@ -21,61 +21,87 @@
                         <li class="collection-item">
                             <div>
                                 <h3>{{perso.name}}</h3>
-                                <button v-on:click="redirection_update(perso.pseudo)"
-                                        class=" update secondary-content waves-effect waves-light btn-small blue darken-4">
-                                    <i class="material-icons right">update</i>Modifier
-                                </button>
+                                <div class="button_update">
+                                    <a href="/liste">
+                                        <button type="button" class="btn waves-effect waves-light blue darken-4">
+                                            Retour<i class="material-icons right">backspace</i></button>
+                                    </a>
+                                    <button v-on:click="redirection_update(perso.pseudo)"
+                                            class="btn waves-effect waves-light blue darken-4"><i
+                                            class="material-icons right">update</i>Modifier
+                                    </button>
+                                </div>
                             </div>
                         </li>
                         <li class="collection-item">{{perso.info}}</li>
                     </ul>
+                    <div v-for="perso in persos">
+                        <div v-if="(perso.pseudo.split(' ').join('').toLowerCase())==(pseudo_perso)">
+                            <div class="col s10">
+                                <ul class="collection">
+                                    <li class="collection-item">
+                                        <div>
+                                            <h3>{{perso.name}}</h3>
+                                            <button v-on:click="redirection_update(perso.pseudo)"
+                                                    class=" update secondary-content waves-effect waves-light btn-small blue darken-4">
+                                                <i class="material-icons right">update</i>Modifier
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">{{perso.info}}</li>
+                                </ul>
 
-                    <ul class="collection">
-                        <li class="collection-item"><h5>Apparence</h5>
-                        </li>
-                        <li class="collection-item">{{perso.apparence}}</li>
-                    </ul>
+                                <ul class="collection">
+                                    <li class="collection-item"><h5>Apparence</h5>
+                                    </li>
+                                    <li class="collection-item">{{perso.apparence}}</li>
+                                </ul>
 
-                    <ul class="collection">
-                        <li class="collection-item"><h5>Personnalité</h5>
-                        </li>
-                        <li class="collection-item">{{perso.personnalite}}</li>
-                    </ul>
+                                <ul class="collection">
+                                    <li class="collection-item"><h5>Personnalité</h5>
+                                    </li>
+                                    <li class="collection-item">{{perso.personnalite}}</li>
+                                </ul>
 
-                    <ul class="collection">
-                        <li class="collection-item"><h5>Biographie </h5>
-                        </li>
-                        <li class="collection-item">{{perso.biographie}}</li>
-                    </ul>
+                                <ul class="collection">
+                                    <li class="collection-item"><h5>Biographie </h5>
+                                    </li>
+                                    <li class="collection-item">{{perso.biographie}}</li>
+                                </ul>
 
-                    <ul class="collection">
-                        <li class="collection-item"><h5>Aptitudes et Compétences</h5>
-                        </li>
-                        <li class="collection-item">{{perso.aptitudes}}</li>
-                    </ul>
+                                <ul class="collection">
+                                    <li class="collection-item"><h5>Aptitudes et Compétences</h5>
+                                    </li>
+                                    <li class="collection-item">{{perso.aptitudes}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col s2">
+                                <ul class="collection">
+                                    <li class="collection-item"><h5 class="center-align">{{perso.pseudo}}</h5>
+                                    </li>
+                                    <img class="center-img" :src="perso.image">
+                                    <li class="collection-item"><span class="badge">{{perso.anniversaire}}</span>Anniversaire
+                                    </li>
+                                    <li class="collection-item"><span class="badge">{{perso.age}}</span>Âge</li>
+                                    <li class="collection-item"><span class="badge">{{perso.genre}}</span>Genre</li>
+                                    <li class="collection-item"><span class="badge">{{perso.taille}}</span>Taille</li>
+                                    <li class="collection-item"><span class="badge">{{perso.occupation}}</span>Occupation
+                                    </li>
+                                    <li class="collection-item"><span class="badge">{{perso.affiliation}}</span>Affiliation
+                                    </li>
+                                    <li class="collection-item"><span class="badge">{{perso.alter}}</span>Alter</li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <footer-bar></footer-bar>
 
-                <div class="col s2">
-                    <ul class="collection">
-                        <li class="collection-item"><h5 class="center-align">{{perso.pseudo}}</h5>
-                        </li>
-                        <img class="center-img" :src="perso.image">
-                        <li class="collection-item"><span class="badge">{{perso.anniversaire}}</span>Anniversaire</li>
-                        <li class="collection-item"><span class="badge">{{perso.age}}</span>Âge</li>
-                        <li class="collection-item"><span class="badge">{{perso.genre}}</span>Genre</li>
-                        <li class="collection-item"><span class="badge">{{perso.taille}}</span>Taille</li>
-                        <li class="collection-item"><span class="badge">{{perso.occupation}}</span>Occupation</li>
-                        <li class="collection-item"><span class="badge">{{perso.affiliation}}</span>Affiliation</li>
-                        <li class="collection-item"><span class="badge">{{perso.alter}}</span>Alter</li>
-
-                    </ul>
-                </div>
             </div>
         </div>
     </div>
-    <footer-bar></footer-bar>
-
-
 </div>
 </body>
 

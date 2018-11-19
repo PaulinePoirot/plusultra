@@ -1,5 +1,4 @@
 var express = require('express');
-
 var router = express.Router();
 
 const beautify = require("json-beautify");
@@ -194,8 +193,6 @@ router.post('/api/perso/update', function (req, res) {
 
     var objIndex = list.findIndex((elem => elem.pseudo.split(' ').join('').toLowerCase() === obj.pseudo.split(' ').join('').toLowerCase()));
 
-    list[objIndex].info = "Laila"
-
     for (var value in obj) {
         list[objIndex][value] = obj[value]
     }
@@ -211,6 +208,8 @@ router.post('/api/perso/update', function (req, res) {
             if (err) throw err;
         });
     });
+
+    res.redirect('/liste') // persos/' + pseudo.split(' ').join('').toLowerCase())
 })
 
 router.post('/api/quotes/add', function (req, res) {

@@ -15,36 +15,30 @@
     <navbar></navbar>
 
     <div class="row">
-      <div class="card col s2">
-        <img class="card-image" src="https://via.placeholder.com/200x200">
-        <a style="top:53%;" href="../wiki/add_character.html" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-        <div class="card-footer">
-          <h3 class="card-title">Identité secrete</h3>
-          <p class="card-text" >Nom Prénom</p>
+      <div class="col s2 responsive_card">
+        <div class="card">
+          <img class="card-image" src="https://via.placeholder.com/200x200">
+          <a style="top:53%;" href="../wiki/add_character.html" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+          <div class="card-footer">
+            <h3 class="card-title">Identité secrete</h3>
+            <p class="card-text">Nom Prénom</p>
+          </div>
         </div>
       </div>
-
-      <div v-for="(perso, index) in persos"
-      :key="index"
-      :ref="`card_${index}`"
-      @mouseout="hoverCard(-1)"
-      class="card col s2">
-
-        <img v-on:click="redirection(perso.pseudo)" class="card-image" :class="{'selected': isSelected(index)}"
-        :src="perso.vignette" >
-
-      <div class="card-footer">
-        <h3 class="card-title" :class="{'selected': isSelected(index)}">{{perso.pseudo}}</h3>
-        <p class="card-text" :class="{'selected': isSelected(index)}">
-          {{perso.name}}
-        </p>
+      <div v-for="perso in persos" class="col s2 responsive_card"><div class="card">
+        <img v-on:click="redirection(perso.pseudo)" class="card-image" :src="perso.vignette" >
+        <div class="card-footer">
+          <h3 class="card-title">{{perso.pseudo}}</h3>
+          <p class="card-text">
+            {{perso.name}}
+          </p>
+        </div></div>
       </div>
     </div>
+
+    <footer-bar></footer-bar>
+
   </div>
-
-  <footer-bar></footer-bar>
-
-</div>
 </body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
