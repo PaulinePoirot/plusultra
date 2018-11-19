@@ -6,7 +6,7 @@ var logger = require('morgan')
 var session = require('express-session')
 var fileUpload = require('express-fileupload')
 
-var indexRouter = require('./src/index')
+var indexRouter = require('./routes/index')
 
 var app = express()
 
