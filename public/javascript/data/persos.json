@@ -106,5 +106,23 @@
     "alter": "Glace et Feu",
     "vignette": "../theme/img/vignette/shoto.png",
     "image": "../theme/img/shoto.png"
+  },
+  {
+    "name": "Enji Todoroki",
+    "pseudo": "Endeavor",
+    "info": "Haut les mains",
+    "apparence": "Soolking",
+    "personnalite": "panenka",
+    "biographie": "zinedine zidane",
+    "aptitudes": "feu",
+    "anniversaire": "24 avril",
+    "age": "32",
+    "genre": "homme",
+    "taille": "196cm",
+    "occupation": "Héros",
+    "affiliation": "Balenciaga",
+    "alter": "Feu",
+    "vignette": "../theme/img/vignette/endeavor.png",
+    "image": "../theme/img/endeavor.png"
   }
 ]

@@ -67,17 +67,17 @@ router.get('/logout', function (req, res, next) {
     })
 })
 
-router.get('/quotes', function (req, res, next) {
+router.get('/api/quotes', function (req, res, next) {
     console.log("GET /quotes")
     res.json(JSON.parse(quotes))
 })
 
-router.get('/persos', function (req, res, next) {
+router.get('/api/persos', function (req, res, next) {
     console.log("GET /persos")
     res.json(JSON.parse(persos))
 })
 
-router.get('/perso/:id', function (req, res, next) {
+router.get('/api/perso/:id', function (req, res, next) {
     console.log("GET /persos/" + req.params.id)
 
     var resultat = JSON.parse('{"error":"personnage non trouvé"}')
@@ -90,7 +90,19 @@ router.get('/perso/:id', function (req, res, next) {
     res.json(resultat)
 })
 
-router.post('/perso/add', function (req, res, next) {
+router.get('/perso/:id', function (req, res, next) {
+    console.log("GET /perso/" + req.params.id)
+
+
+    res.sendFile('detail_perso.html?pseudo_perso=' + req.params.id.split(' ').join('').toLowerCase(), {root: __dirname + '/../public/wiki'})
+})
+
+router.get('/perso/update/:id', function (req, res, next) {
+    console.log("GET /perso/update/" + req.params.id)
+    res.sendFile('administration_page.html', {root: __dirname + '/../public/wiki'})
+})
+
+router.post('/api/perso/add', function (req, res, next) {
     console.log('POST /perso/add')
 
     console.log(req.body, req.files)
@@ -157,16 +169,16 @@ router.post('/perso/add', function (req, res, next) {
             fs.write(fd, persos, 'utf8', function (err, written, string) {
                 if (err) throw err
             })
-            // always close the file descriptor!
             fs.close(fd, (err) => {
                 if (err) throw err;
             });
         });
+
         res.redirect('/liste')
     }
 })
 
-router.post('/perso/delete', function (req, res, next) {
+router.post('/api/perso/delete', function (req, res, next) {
     console.log('POST /perso/delete')
 
     var list = JSON.parse(persos)
@@ -194,45 +206,53 @@ router.post('/perso/delete', function (req, res, next) {
             fs.write(fd, persos, 'utf8', function (err, written, string) {
                 if (err) throw err
             })
-            // always close the file descriptor!
             fs.close(fd, (err) => {
                 if (err) throw err;
             });
         });
-        res.json(new_list)
     }
 })
 
-router.post('/perso/update', function (req, res, next) {
+router.post('/api/perso/update', function (req, res) {
     console.log('POST /perso/update')
 
     console.log(req.session.admin)
 
-    var list = JSON.parse(persos)
-    var obj = req.body
-    var exists = false
-    var myPerso = null
-
+    /*
     list.forEach(function (elem) {
-        if (elem.name === obj.name) {
-            exists = true
+        if (elem.pseudo.split(' ').join('').toLowerCase() === obj.pseudo.split(' ').join('').toLowerCase()) {
             myPerso = elem
         }
     })
 
-    console.log(myPerso)
+    for (var value in myPerso) {
+        myPerso[value] = obj[value]
+    }*/
 
-    if (exists) {
-        Object.entries(obj).forEach((elem) => {
-            console.log(elem[0])
+    var list = JSON.parse(persos)
+    var obj = req.body
 
-            myPerso.elem[0] = elem[1]
-        })
+    var objIndex = list.findIndex((elem => elem.pseudo.split(' ').join('').toLowerCase() === obj.pseudo.split(' ').join('').toLowerCase()));
 
-        res.send('OK')
-    } else {
-        res.send('KO')
+    list[objIndex].info = "Laila"
+
+    for (var value in obj) {
+        list[objIndex][value] = obj[value]
     }
+
+    persos = beautify(list, null, 2, 50)
+
+    fs.open('public/javascript/data/persos.json', 'w', function (err, fd) {
+        if (err) throw err;
+        fs.write(fd, persos, 'utf8', function (err, written, string) {
+            if (err) throw err
+        })
+        fs.close(fd, (err) => {
+            if (err) throw err;
+        });
+    });
+
+    res.redirect('/') // persos/' + pseudo.split(' ').join('').toLowerCase())
 })
 
 router.post('/api/quotes/add', function (req, res) {
@@ -252,13 +272,12 @@ router.post('/api/quotes/add', function (req, res) {
         fs.write(fd, quotes, 'utf8', function (err, written, string) {
             if (err) throw err
         })
-        // always close the file descriptor!
         fs.close(fd, (err) => {
             if (err) throw err;
         });
     });
-    res.redirect('/administration')
 
+    res.redirect('/administration#quotes')
 })
 
 router.post('/api/quotes/delete', function (req, res) {
@@ -273,17 +292,13 @@ router.post('/api/quotes/delete', function (req, res) {
 
     quotes = beautify(new_list, null, 2, 50)
 
-    fs.open('public/javascript/data/quotes.json', 'w', function (err, fd) {
-        if (err) throw err;
-        fs.write(fd, quotes, 'utf8', function (err, written, string) {
-            if (err) throw err
-        })
-        // always close the file descriptor!
-        fs.close(fd, (err) => {
-            if (err) throw err;
-        });
-    });
-    res.redirect('/administration')
+    var fd = fs.openSync('public/javascript/data/quotes.json', 'w')
+
+    fs.writeSync(fd, quotes, 'utf8')
+
+    fs.closeSync(fd)
+
+    res.send("OK")
 
 })
 

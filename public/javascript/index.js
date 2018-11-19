@@ -19,7 +19,7 @@ Vue.component("footer-bar", {
     methods:
         {
             loadQuotes() {
-                axios.get('http://localhost:8080/quotes').then((response) => {
+                axios.get('/api/quotes').then((response) => {
                     this.quotes = response.data
                     this.random = Math.floor(Math.random() * this.quotes.length);
                     this.quote = this.quotes[this.random];
@@ -127,30 +127,37 @@ let vue = new Vue({
     },
     methods: {
         loadData() {
-            axios.get('/persos').then((response) => {
+            axios.get('/api/persos').then((response) => {
                 this.persos = response.data
             });
 
-            axios.get('/quotes').then((quoquo) => {
+            axios.get('/api/quotes').then((quoquo) => {
                 this.quotes = quoquo.data
             });
         },
+        delete_quote(quote) {
+            axios.post('/api/quotes/delete', {
+                "quote" : quote
+            }).then((response) => {
+                console.log(response)
+                window.location.href = '/administration'
+            })
+        },
         delete_perso(pseudo) {
-            var lowerCasePseudo = pseudo.split(' ').join('').toLowerCase()
-            axios.post('/perso/delete', {
-                "pseudo": lowerCasePseudo
+            axios.post('/api/perso/delete', {
+                "pseudo": pseudo.split(' ').join('').toLowerCase()
             }).then((response) => {
                 console.log("222222222", this.persos = response.data)
             });
         },
         redirection_update(pseudo) {
-            window.location.href = "/wiki/update_perso.html?pseudo_perso=" + pseudo // '/persos/update/'+ pseudo.split(' ').join('').toLowerCase()
+            window.location.href = "/wiki/update_perso.html?pseudo_perso=" + pseudo.split(' ').join('').toLowerCase() // '/persos/update/'+ pseudo.split(' ').join('').toLowerCase()
         },
         update_perso(pseudo) {
-            window.location.href = "/wiki/update_perso.html?pseudo_perso=" + pseudo // '/persos/update/'+ pseudo.split(' ').join('').toLowerCase()
+            window.location.href = "/wiki/update_perso.html?pseudo_perso=" + pseudo.split(' ').join('').toLowerCase() // '/persos/update/'+ pseudo.split(' ').join('').toLowerCase()
         },
         redirection(pseudo) {
-            window.location.href = "/wiki/detail_perso.html?pseudo_perso=" + pseudo // '/persos/'+ pseudo.split(' ').join('').toLowerCase()
+            window.location.href = "/wiki/detail_perso.html?pseudo_perso=" + pseudo.split(' ').join('').toLowerCase() // '/persos/'+ pseudo.split(' ').join('').toLowerCase()
         },
 
         ready() {
