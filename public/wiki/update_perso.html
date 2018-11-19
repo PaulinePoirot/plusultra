@@ -16,7 +16,7 @@
     <div class="row">
       <form class="col s12" method="post" enctype="multipart/form-data" action="/api/perso/update">
         <div v-for="perso in persos">
-          <div v-if="(perso.pseudo)==(pseudo_perso.split(' ').join('').toLowerCase()">
+          <div v-if="(perso.pseudo.split(' ').join('').toLowerCase())==(pseudo_perso)">
             <div class="col s10">
               <ul class="collection">
                 <li class="collection-item">
