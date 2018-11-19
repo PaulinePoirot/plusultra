@@ -214,5 +214,23 @@
     "alter": "Acide",
     "vignette": "../theme/img/vignette/pinkie.jpeg",
     "image": "../theme/img/pinkie.png"
+  },
+  {
+    "name": "L'épée sacrée",
+    "pseudo": "Excalibur",
+    "info": "Excalibur L'épée sacré, est la plus puissante de toutes les armes démoniaques. La personne qui le manie devient un héros reconnu par tous. Mais c'est aussi un des Grands Ancien, celui qui représente la colère.",
+    "apparence": "Excalibur possède un physique assez étrange. En effet il ne possède pas de forme humaine. Il a une apparence anthropomorphique assez simpliste. Il est de petit taille, tout blanc et possède un long nez qui remonte vers le haut. Ses bras et ses jambes sont de même assez fins, ses pieds sont assez grands et sont munis de trois longs orteils. Il porte un haut de forme blanc ainsi qu'une veste blanche dans le style \"Renaissance\". Ses éléments signatures restent sa canne blanche et son haut-de-forme dont il ne se sépare jamais.",
+    "personnalite": "Excalibur est un personnage très hautain, il semble avoir un certain complexe de supériorité. Il veut toujours être le centre de tout, il est impoli envers les autres et n'hésite pas à couper la parole de quelqu'un juste pour parler. Il passe beaucoup de temps à parler pour raconter son histoire à tout le monde. Il est aussi très exigeant et a créé une liste de 1000 choses à faire chaque jour. Excalibur sous-estime les humains et se place au dessus d'eux grâce à son titre de grand ancien. Par ce fait, il traite les humain comme des moins que rien. Néanmoins, Excalibur n'est pas un personnage méchant, il est assez gentil mais possède un caractère très fort qui empêche les autres de pouvoir s'entendre avec lui. De part son caractère très trempé, Excalibur n'a pas de meister.",
+    "biographie": "Il y a plus de 800 ans Excalibur faisaient parti du groupe de Shinigami \"les grands anciens\", le groupe chassait et détruisait les être maléfiques mais un jour Asura un membres du groupe dévora trois autres anciens. Shinigami le punit mais ne put à nouveau revenir vers le groupe. Excalibur quitta le groupe et resta isolé dans une grotte à attendre qu'un courageux manieur vienne le récupérer. Excalbur a aussi fait la guerre aux moyen-âge à l'époque sont manieur n'était qu'autre que le roi Arthur, il fut aussi inspecter, et à déja vaincu en Amérique où il mena une vie de débauche.",
+    "aptitudes": "Excalibur est la première arme mais aussi la plus puissante. La personne qui saura le manier deviendra un héros et possédera des pouvoirs incroyables.",
+    "anniversaire": "inconnu",
+    "age": "+ 800 ans",
+    "genre": "épée légendaire",
+    "taille": "60cm",
+    "occupation": " ",
+    "affiliation": " Great Old One",
+    "alter": "Holy Sword",
+    "vignette": "../theme/img/vignette/excalibur.png",
+    "image": "../theme/img/excalibur.png"
   }
 ]
