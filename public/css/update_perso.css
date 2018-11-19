@@ -1,0 +1,31 @@
+html{
+  height:100%;
+}
+
+body {
+  height: 100%;
+  margin:0;
+  padding:0;
+}
+
+.center-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.tableau_data{
+  width: 145px;
+  height: 25px;
+}
+
+
+.data{
+  height: 150px;
+}
+
+.button_update{
+  float: right;
+  margin-top: -50px;
+}

@@ -3,7 +3,7 @@ const footer =
       <div class="container">
         <div class="row">
           <div class="col l6 s12">
-            <h5 class="white-text"><a href="http://heroaca.com/" target="_blank"><img style="width:30%"src="../theme/img/logo.png"></a></h5>
+            <h5 class="white-text"><a href="http://heroaca.com/" target="_blank"><img style="width:30%"src="../assets/img/logo.png"></a></h5>
 
           </div>
             <div class="quote-box col l4 offset-l2 s12">

@@ -89,8 +89,8 @@ router.post('/api/perso/add', function (req, res, next) {
     if (req.files.vignette.mimetype === 'image/jpg') type = '.jpg'
     if (req.files.vignette.mimetype === 'image/jpeg') type = '.jpeg'
 
-    var vignettePath = path.join(__dirname, '/../public/theme/img/vignette/' + pseudo + type)
-    var vignettePathFromRouter = '../theme/img/vignette/' + pseudo + type
+    var vignettePath = path.join(__dirname, '/../public/assets/img/vignette/' + pseudo + type)
+    var vignettePathFromRouter = '../assets/img/vignette/' + pseudo + type
 
     vignette.mv(vignettePath, function (err) {
       if (err) console.log(err)
@@ -105,8 +105,8 @@ router.post('/api/perso/add', function (req, res, next) {
     if (req.files.image.mimetype === 'image/jpg') type = '.jpg'
     if (req.files.image.mimetype === 'image/jpeg') type = '.jpeg'
 
-    var imagePath = path.join(__dirname, '/../public/theme/img/' + pseudo + type)
-    var imagePathFromRouter = '../theme/img/' + pseudo + type
+    var imagePath = path.join(__dirname, '/../public/assets/img/' + pseudo + type)
+    var imagePathFromRouter = '../assets/img/' + pseudo + type
 
     image.mv(imagePath, function (err) {
       if (err) console.log(err)
@@ -136,7 +136,7 @@ router.post('/api/perso/add', function (req, res, next) {
 
     persos = beautify(list, null, 2, 50)
 
-    fs.open('public/javascript/data/persos.json', 'w', function (err, fd) {
+    fs.open('public/js/data/persos.json', 'w', function (err, fd) {
       if (err) throw err;
       fs.write(fd, persos, 'utf8', function (err, written, string) {
         if (err) throw err
@@ -174,7 +174,7 @@ router.post('/api/perso/delete', function (req, res, next) {
 
       persos = beautify(new_list, null, 2, 50)
 
-      fs.open('public/javascript/data/persos.json', 'w', function (err, fd) {
+      fs.open('public/js/data/persos.json', 'w', function (err, fd) {
         if (err) throw err;
         fs.write(fd, persos, 'utf8', function (err, written, string) {
           if (err) throw err
@@ -204,7 +204,7 @@ router.post('/api/perso/update', function (req, res) {
 
   persos = beautify(list, null, 2, 50)
 
-  fs.open('public/javascript/data/persos.json', 'w', function (err, fd) {
+  fs.open('public/js/data/persos.json', 'w', function (err, fd) {
     if (err) throw err;
     fs.write(fd, persos, 'utf8', function (err, written, string) {
       if (err) throw err
@@ -227,7 +227,7 @@ router.post('/api/quotes/add', function (req, res) {
 
   quotes = beautify(list, null, 2, 50)
 
-  fs.open('public/javascript/data/quotes.json', 'w', function (err, fd) {
+  fs.open('public/js/data/quotes.json', 'w', function (err, fd) {
     if (err) throw err;
     fs.write(fd, quotes, 'utf8', function (err, written, string) {
       if (err) throw err
@@ -250,7 +250,7 @@ router.post('/api/quotes/delete', function (req, res) {
 
   quotes = beautify(new_list, null, 2, 50)
 
-  var fd = fs.openSync('public/javascript/data/quotes.json', 'w')
+  var fd = fs.openSync('public/js/data/quotes.json', 'w')
 
   fs.writeSync(fd, quotes, 'utf8')
 

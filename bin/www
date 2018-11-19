@@ -36,13 +36,13 @@ var server = http.createServer(app);
 
 server.listen(port, () => {
     console.log("Listening on port " + port)
-    var chemin_persos = path.join(__dirname, '../public/javascript/data/persos.json')
+    var chemin_persos = path.join(__dirname, '../public/js/data/persos.json')
     persos = fs.readFileSync(chemin_persos).toString('utf8')
 
-    var chemin_users = path.join(__dirname, '../public/javascript/data/users.json')
+    var chemin_users = path.join(__dirname, '../public/js/data/users.json')
     users = fs.readFileSync(chemin_users).toString('utf8')
 
-    var chemin_quotes = path.join(__dirname, '../public/javascript/data/quotes.json')
+    var chemin_quotes = path.join(__dirname, '../public/js/data/quotes.json')
     quotes = fs.readFileSync(chemin_quotes).toString('utf8')
 
 });
