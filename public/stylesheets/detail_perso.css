@@ -15,7 +15,7 @@ body {
   width: 50%;
 }
 
-.update{
+.button_update{
   float: right;
-  top: -50px;
+  margin-top: -50px;
 }

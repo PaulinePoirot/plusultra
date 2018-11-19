@@ -14,15 +14,20 @@
   <div id="app">
     <navbar></navbar>
     <div class="row">
-      <div v-for="perso in persos">
-        <div v-if="(perso.pseudo)==(pseudo_perso)">
-          <div class="col s10">
-            <ul class="collection">
-              <li class="collection-item">
-                <div>
-                  <h3>{{perso.name}}</h3>
-                  <button v-on:click="update_perso(perso.pseudo)" class="save secondary-content waves-effect waves-light btn-small blue darken-4"><i class="material-icons right">save</i>Sauvegarder</button>
-                  </div
+      <form class="col s12" method="post" enctype="multipart/form-data" action="/api/perso/update">
+        <div v-for="perso in persos">
+          <div v-if="(perso.pseudo.split(' ').join('').toLowerCase())==(pseudo_perso)">
+            <div class="col s10">
+              <ul class="collection">
+                <li class="collection-item">
+                  <div>
+                    <h3>{{perso.name}}</h3>
+                    <textarea style="display:none" name="name">{{perso.name}}</textarea>
+                    <div class="button_update">
+                      <a href="/liste"><button type="button" class="btn waves-effect waves-light blue darken-4">Back<i class="material-icons right">backspace</i> </button></a>
+                      <button class="btn waves-effect waves-light blue darken-4" type="submit">Submit<i class="material-icons right">send</i> </button>
+                    </div>
+                  </div>
                 </li>
                 <li class="collection-item"><textarea class="data" name="info">{{perso.info}}</textarea></li>
               </ul>
@@ -55,6 +60,7 @@
             <div class="col s2">
               <ul class="collection">
                 <li class="collection-item"><h5 class="center-align">{{perso.pseudo}}</h5>
+                  <textarea name="pseudo" style="display:none">{{perso.pseudo}}</textarea>
                 </li>
                 <img class="center-img" :src="perso.image">
                 <li class="collection-item"><span class="badge"><textarea class="tableau_data" name="anniversaire">{{perso.anniversaire}}</textarea></span>Anniversaire</li>
@@ -69,21 +75,21 @@
             </div>
           </div>
         </div>
-      </div>
-      <footer-bar></footer-bar>
-
+      </form>
     </div>
-  </body>
+    <footer-bar></footer-bar>
+
+  </div>
+</body>
 
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="../theme/components/footer.js"></script>
-  <script src="../theme/components/navbar.js"></script>
-  <script src="../theme/components/characters.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="../theme/components/footer.js"></script>
+<script src="../theme/components/navbar.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>

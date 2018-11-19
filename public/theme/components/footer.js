@@ -3,22 +3,19 @@ const footer =
       <div class="container">
         <div class="row">
           <div class="col l6 s12">
-            <h5 class="white-text">Footer Content</h5>
-            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            <h5 class="white-text"><a href="http://heroaca.com/" target="_blank"><img style="width:30%"src="../theme/img/logo.png"></a></h5>
+
           </div>
-          <div class="col l4 offset-l2 s12">
-            <div>
-            <div class="quote-box">
+            <div class="quote-box col l4 offset-l2 s12">
                  <h6 class="text">{{quote}}</h6>
                </div>
              </div>
-          </div>
         </div>
-      </div>
+
       <div class="footer-copyright">
         <div class="container">
-          © Tous écrits de Plus Ultra vienne de Wiki Boku no Hero Academia, une communauté de FANDOM appartenant à la catégorie Bandes dessinées.
-          <a class="grey-text text-lighten-4 right" href="http://fr.bokunoheroacademia.wikia.com/wiki/Wiki_Boku_no_Hero_Academia">Wiki Boku no Hero Academia</a>
+          © Tous écrits de Plus Ultra proviennent du Wiki Boku no Hero Academia, une communauté de FANDOM appartenant à la catégorie Bandes dessinées.
+          <a class="grey-text text-lighten-4 right" href="http://fr.bokunoheroacademia.wikia.com/wiki/Wiki_Boku_no_Hero_Academia" target="_blank">Wiki Boku no Hero Academia</a>
         </div>
       </div>
     </footer>

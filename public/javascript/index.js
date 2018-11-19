@@ -2,32 +2,68 @@ Vue.prototype.$http = axios
 
 Vue.component("navbar", {
   template: navbar,
+  data:
+  () => ({
+    el: '#app',
+    admin: "",
+  }),
+
+  methods:
+  {
+    isAdmin() {
+      axios.get('/connected').then((isconnected) => {
+        if(isconnected.data.admin){
+          this.admin = isconnected.data.admin
+        }else{
+          this.admin = false
+        }
+      });
+    }
+    ,
+    ready() {
+      this.isAdmin()
+      setInterval(function () {
+        this.isAdmin()
+      }.bind(this), 30000)
+    }
+  }
+  ,
+  created() {
+    this.ready();
+  }
+
 });
 
 Vue.component("footer-bar", {
-  template: footer,
-  data: () => ({
+
+  template:
+  footer,
+  data:
+  () => ({
     el: '#app',
     random: 0,
     quote: "",
     quotes: [],
   }),
 
-  methods: {
-    loadQuotes () {
-      axios.get('http://localhost:8080/quotes').then((response) => {
+  methods:
+  {
+    loadQuotes() {
+      axios.get('/api/quotes').then((response) => {
         this.quotes = response.data
         this.random = Math.floor(Math.random() * this.quotes.length);
         this.quote = this.quotes[this.random];
       });
-    },
+    }
+    ,
     ready() {
       this.loadQuotes()
       setInterval(function () {
         this.loadQuotes()
       }.bind(this), 30000)
     }
-  },
+  }
+  ,
   created() {
     this.ready();
   }
@@ -115,35 +151,51 @@ let vue = new Vue({
     password: "",
     random: 0,
     quote: "",
-    pseudo_perso :"",
+    admin : "",
+    pseudo_perso: "",
     selectedPerso: -1
   },
   methods: {
-    loadData () {
-      axios.get('/persos').then((response) => {
+    loadData() {
+      axios.get('/api/persos').then((response) => {
         this.persos = response.data
       });
 
-      axios.get('/quotes').then((quoquo) => {
+      axios.get('/api/quotes').then((quoquo) => {
         this.quotes = quoquo.data
       });
+
+      axios.get('/connected').then((isconnected) => {
+        if(isconnected.data.admin){
+          this.admin = isconnected.data.admin
+        }else{
+          this.admin = false
+        }
+      });
     },
-    delete_perso(pseudo){
-      var lowerCasePseudo = pseudo.split(' ').join('').toLowerCase()
-      axios.post('/perso/delete',{
-        "pseudo" : lowerCasePseudo
-      } ).then((response) => {
+    delete_quote(quote) {
+      axios.post('/api/quotes/delete', {
+        "quote" : quote
+      }).then((response) => {
+        console.log(response)
+        window.location.href = '/administration'
+      })
+    },
+    delete_perso(pseudo) {
+      axios.post('/api/perso/delete', {
+        "pseudo": pseudo.split(' ').join('').toLowerCase()
+      }).then((response) => {
         console.log("222222222", this.persos = response.data)
       });
     },
-    redirection_update(pseudo){
-      window.location.href ="/wiki/update_perso.html?pseudo_perso="+pseudo
+    redirection_update(pseudo) {
+      window.location.href = "/wiki/update_perso.html?pseudo_perso=" + pseudo.split(' ').join('').toLowerCase() // '/persos/update/'+ pseudo.split(' ').join('').toLowerCase()
     },
-    update_perso(pseudo){
-      window.location.href ="/wiki/update_perso.html?pseudo_perso="+pseudo
+    update_perso(pseudo) {
+      window.location.href = "/wiki/update_perso.html?pseudo_perso=" + pseudo.split(' ').join('').toLowerCase() // '/persos/update/'+ pseudo.split(' ').join('').toLowerCase()
     },
-    redirection(pseudo){
-      window.location.href ="/wiki/detail_perso.html?pseudo_perso="+pseudo
+    redirection(pseudo) {
+      window.location.href = "/wiki/detail_perso.html?pseudo_perso=" + pseudo.split(' ').join('').toLowerCase() // '/persos/'+ pseudo.split(' ').join('').toLowerCase()
     },
 
     ready() {

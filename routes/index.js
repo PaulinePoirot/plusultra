@@ -39,17 +39,17 @@ router.post('/login', function (req, res, next) {
 
     const user_list = JSON.parse(users)
 
-    if (!req.session.authentified) {
+    if (!req.session.admin) {
         user_list.forEach(function (elem) {
                 if (elem.username === user) {
                     if (bcrypt.compareSync(pass, elem.password)) {
-                        req.session.authentified = true
+                        req.session.admin = true
                     }
                 }
             }
         )
 
-        if (req.session.authentified) {
+        if (req.session.admin) {
             res.redirect('/')
         } else {
             res.redirect('/connexion')
@@ -59,29 +59,26 @@ router.post('/login', function (req, res, next) {
     }
 })
 
-router.get('/session', (req, res, next) => {
-    res.json(req.session)
-})
-
 router.get('/logout', function (req, res, next) {
     console.log("GET /logout")
 
     req.session.destroy(function (err) {
         if (err) throw err
     })
+    res.redirect('/')
 })
 
-router.get('/quotes', function (req, res, next) {
+router.get('/api/quotes', function (req, res, next) {
     console.log("GET /quotes")
     res.json(JSON.parse(quotes))
 })
 
-router.get('/persos', function (req, res, next) {
+router.get('/api/persos', function (req, res, next) {
     console.log("GET /persos")
     res.json(JSON.parse(persos))
 })
 
-router.get('/perso/:id', function (req, res, next) {
+router.get('/api/perso/:id', function (req, res, next) {
     console.log("GET /persos/" + req.params.id)
 
     var resultat = JSON.parse('{"error":"personnage non trouvé"}')
@@ -94,11 +91,19 @@ router.get('/perso/:id', function (req, res, next) {
     res.json(resultat)
 })
 
-router.get('/users', function (req, res, next) {
-    res.json(JSON.parse(users))
+router.get('/perso/:id', function (req, res, next) {
+    console.log("GET /perso/" + req.params.id)
+
+
+    res.sendFile('detail_perso.html?pseudo_perso=' + req.params.id.split(' ').join('').toLowerCase(), {root: __dirname + '/../public/wiki'})
 })
 
-router.post('/perso/add', function (req, res, next) {
+router.get('/perso/update/:id', function (req, res, next) {
+    console.log("GET /perso/update/" + req.params.id)
+    res.sendFile('administration_page.html', {root: __dirname + '/../public/wiki'})
+})
+
+router.post('/api/perso/add', function (req, res, next) {
     console.log('POST /perso/add')
 
     console.log(req.body, req.files)
@@ -107,14 +112,14 @@ router.post('/perso/add', function (req, res, next) {
 
     if (req.files.vignette) {
         var vignette = req.files.vignette
-        let type=null
+        let type = null
 
         if (req.files.vignette.mimetype === 'image/png') type = '.png'
         if (req.files.vignette.mimetype === 'image/jpg') type = '.jpg'
         if (req.files.vignette.mimetype === 'image/jpeg') type = '.jpeg'
 
-        var vignettePath = path.join(__dirname, '/../public/theme/img/vignette/'+pseudo+type)
-        var vignettePathFromRouter = '../theme/img/vignette/'+pseudo+type
+        var vignettePath = path.join(__dirname, '/../public/theme/img/vignette/' + pseudo + type)
+        var vignettePathFromRouter = '../theme/img/vignette/' + pseudo + type
 
 
         vignette.mv(vignettePath, function (err) {
@@ -124,14 +129,14 @@ router.post('/perso/add', function (req, res, next) {
 
     if (req.files.image) {
         var image = req.files.image
-        let type=null
+        let type = null
 
         if (req.files.image.mimetype === 'image/png') type = '.png'
         if (req.files.image.mimetype === 'image/jpg') type = '.jpg'
         if (req.files.image.mimetype === 'image/jpeg') type = '.jpeg'
 
-        var imagePath = path.join(__dirname, '/../public/theme/img/'+pseudo+type)
-        var imagePathFromRouter = '../theme/img/'+pseudo+type
+        var imagePath = path.join(__dirname, '/../public/theme/img/' + pseudo + type)
+        var imagePathFromRouter = '../theme/img/' + pseudo + type
 
         image.mv(imagePath, function (err) {
             if (err) console.log(err)
@@ -165,16 +170,16 @@ router.post('/perso/add', function (req, res, next) {
             fs.write(fd, persos, 'utf8', function (err, written, string) {
                 if (err) throw err
             })
-            // always close the file descriptor!
             fs.close(fd, (err) => {
                 if (err) throw err;
             });
         });
+
         res.redirect('/liste')
     }
 })
 
-router.post('/perso/delete', function (req, res, next) {
+router.post('/api/perso/delete', function (req, res, next) {
     console.log('POST /perso/delete')
 
     var list = JSON.parse(persos)
@@ -202,45 +207,106 @@ router.post('/perso/delete', function (req, res, next) {
             fs.write(fd, persos, 'utf8', function (err, written, string) {
                 if (err) throw err
             })
-            // always close the file descriptor!
             fs.close(fd, (err) => {
                 if (err) throw err;
             });
         });
-        res.json(new_list)
     }
 })
 
-router.post('/perso/update', function (req, res, next) {
+router.post('/api/perso/update', function (req, res) {
     console.log('POST /perso/update')
 
-    console.log(req.session.authentified)
+    console.log(req.session.admin)
 
-    var list = JSON.parse(persos)
-    var obj = req.body
-    var exists = false
-    var myPerso = null
-
+    /*
     list.forEach(function (elem) {
-        if (elem.name === obj.name) {
-            exists = true
+        if (elem.pseudo.split(' ').join('').toLowerCase() === obj.pseudo.split(' ').join('').toLowerCase()) {
             myPerso = elem
         }
     })
 
-    console.log(myPerso)
+    for (var value in myPerso) {
+        myPerso[value] = obj[value]
+    }*/
 
-    if (exists) {
-        Object.entries(obj).forEach((elem) => {
-            console.log(elem[0])
+    var list = JSON.parse(persos)
+    var obj = req.body
 
-            myPerso.elem[0] = elem[1]
-        })
+    var objIndex = list.findIndex((elem => elem.pseudo.split(' ').join('').toLowerCase() === obj.pseudo.split(' ').join('').toLowerCase()));
 
-        res.send('OK')
-    } else {
-        res.send('KO')
+    list[objIndex].info = "Laila"
+
+    for (var value in obj) {
+        list[objIndex][value] = obj[value]
     }
+
+    persos = beautify(list, null, 2, 50)
+
+    fs.open('public/javascript/data/persos.json', 'w', function (err, fd) {
+        if (err) throw err;
+        fs.write(fd, persos, 'utf8', function (err, written, string) {
+            if (err) throw err
+        })
+        fs.close(fd, (err) => {
+            if (err) throw err;
+        });
+    });
+
+    res.redirect('/') // persos/' + pseudo.split(' ').join('').toLowerCase())
+})
+
+router.post('/api/quotes/add', function (req, res) {
+    console.log('POST /api/quotes/add')
+
+    console.log(req.body)
+
+    var list = JSON.parse(quotes)
+    var obj = req.body
+
+    list.push(obj.quote)
+
+    quotes = beautify(list, null, 2, 50)
+
+    fs.open('public/javascript/data/quotes.json', 'w', function (err, fd) {
+        if (err) throw err;
+        fs.write(fd, quotes, 'utf8', function (err, written, string) {
+            if (err) throw err
+        })
+        fs.close(fd, (err) => {
+            if (err) throw err;
+        });
+    });
+
+    res.redirect('/administration#quotes')
+})
+
+router.post('/api/quotes/delete', function (req, res) {
+    console.log('POST /api/quotes/delete')
+
+    console.log(req.body)
+
+    var list = JSON.parse(quotes)
+    var obj = req.body
+
+    const new_list = list.filter(quote => quote !== obj.quote)
+
+    quotes = beautify(new_list, null, 2, 50)
+
+    var fd = fs.openSync('public/javascript/data/quotes.json', 'w')
+
+    fs.writeSync(fd, quotes, 'utf8')
+
+    fs.closeSync(fd)
+
+    res.send("OK")
+
+})
+
+router.get('/connected', function(req, res, next) {
+    console.log('GET /connected')
+
+    res.json(req.session)
 })
 
 module.exports = router;

@@ -6,7 +6,6 @@ body {
   height: 100%;
   margin:0;
   padding:0;
-
 }
 footer{
   width: 100%;
@@ -14,7 +13,6 @@ footer{
 }
 
 .card {
-  margin-left: 10px!important;
   position: relative;
   background-color: #FFFFFF;
   height: 370px;
@@ -30,5 +28,9 @@ footer{
 
 .row{
   margin-top: 10px;
-  margin-left: 210px!important;
+  margin-left: 10px!important;
+}
+
+.responsive_card {
+  width: auto !important;
 }
