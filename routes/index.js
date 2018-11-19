@@ -27,6 +27,21 @@ router.get('/administration', function (req, res, next) {
   }
 })
 
+router.get('/newPerso', function (req, res, next) {
+  console.log("GET /newPerso")
+  res.sendFile('add_character.html', {root: __dirname + '/../public/wiki'})
+})
+
+router.get('/update', function (req, res, next) {
+  console.log("GET /update")
+  res.sendFile('update_perso.html', {root: __dirname + '/../public/wiki'})
+})
+
+router.get('/detail', function (req, res, next) {
+  console.log("GET /detail")
+  res.sendFile('detail_perso.html', {root: __dirname + '/../public/wiki'})
+})
+
 router.get('/connexion', function (req, res, next) {
   console.log("GET /connexion")
   res.sendFile('connexion_page.html', {root: __dirname + '/../public/wiki'})

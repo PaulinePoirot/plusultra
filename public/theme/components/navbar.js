@@ -7,7 +7,7 @@ const navbar =
         <li><a href="/liste">Personnages</a></li>
         <li v-if='admin==true'><a href="/administration">Administration</a></li>
         <li v-if='admin==true'><a href="/logout">Déconnection <i class="material-icons right">highlight_off</i></a></li>
-        <li v-if='admin==false'><a href="../wiki/connexion_page.html">Connexion <i class="material-icons right">account_circle</i></a></li>
+        <li v-if='admin==false'><a href="/connexion">Connexion <i class="material-icons right">account_circle</i></a></li>
       </ul>
       </div>
   </nav>

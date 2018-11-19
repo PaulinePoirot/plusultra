@@ -180,10 +180,10 @@ let vue = new Vue({
       });
     },
     redirection_update(pseudo) {
-      window.location.href = "/wiki/update_perso.html?pseudo_perso=" + pseudo.split(' ').join('').toLowerCase() // '/persos/update/' + pseudo.split(' ').join('').toLowerCase()
+      window.location.href = "/update?pseudo_perso=" + pseudo.split(' ').join('').toLowerCase()
     },
     redirection(pseudo) {
-      window.location.href = "/wiki/detail_perso.html?pseudo_perso=" + pseudo.split(' ').join('').toLowerCase() // '/persos/'+ pseudo.split(' ').join('').toLowerCase()
+      window.location.href = "/detail?pseudo_perso=" + pseudo.split(' ').join('').toLowerCase()
     },
 
     ready() {
