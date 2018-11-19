@@ -26,6 +26,18 @@ footer{
   min-width: 100%;
 }
 
+.card-footer {
+    position: absolute;
+    bottom: 0;
+    height: 130px;
+    padding: 10px 15px;
+}
+
+.card-text {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
 .row{
   margin-top: 10px;
   margin-left: 10px!important;
