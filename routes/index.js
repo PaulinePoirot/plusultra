@@ -253,7 +253,7 @@ router.post('/api/perso/update', function (req, res) {
         });
     });
 
-    res.redirect('/') // persos/' + pseudo.split(' ').join('').toLowerCase())
+    res.redirect('/liste') // persos/' + pseudo.split(' ').join('').toLowerCase())
 })
 
 router.post('/api/quotes/add', function (req, res) {
