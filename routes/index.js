@@ -302,4 +302,10 @@ router.post('/api/quotes/delete', function (req, res) {
 
 })
 
+router.get('/connected', function(req, res, next) {
+    console.log('GET /connected')
+
+    res.json(req.session)
+})
+
 module.exports = router;
